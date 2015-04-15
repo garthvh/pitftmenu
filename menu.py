@@ -19,11 +19,11 @@ def make_button(text, xpo, ypo, colour):
 def on_click():
     click_pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
     #check to see if exit has been pressed
-    if 200 <= click_pos[0] <= 300 and 130 <= click_pos[1] <=230:
-        print "You pressed exit"
-        button(0)
+    #if 200 <= click_pos[0] <= 300 and 130 <= click_pos[1] <=230:
+    #    print "You pressed exit"
+    #    button(0)
     #now check to see if button 1 was pressed
-    if 15 <= click_pos[0] <= 125 and 15 <= click_pos[1] <=50:
+    if 20 <= click_pos[0] <= 185 and 15 <= click_pos[1] <=50:
                 print "You pressed button 1"
                 button(1)
     #now check to see if button 2 was pressed
@@ -104,8 +104,8 @@ make_button("Menu item 4", 260, 110, cyan)
 make_button("Menu item 5", 40, 180, cyan)
 make_button("Menu item 6", 260, 180, cyan)
 # Fourth Row
-make_button("Menu item 5", 40, 250, cyan)
-make_button("Menu item 6", 260, 250, cyan)
+make_button("Menu item 7", 40, 250, cyan)
+make_button("Menu item 8", 260, 250, cyan)
 
 #While loop to manage touch screen inputs
 while 1:

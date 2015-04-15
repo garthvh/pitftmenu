@@ -78,8 +78,8 @@ def button(number):
         font=pygame.font.Font(None,36)
         label=font.render(run_cmd(ip_address_cmd), 1, (white))
         screen.blit(label,(105,120))
-        time.sleep(5) #do something interesting here
-        sys.exit()
+        #time.sleep(5) #do something interesting here
+        #sys.exit()
 
     if number == 2:
         time.sleep(5) #do something interesting here

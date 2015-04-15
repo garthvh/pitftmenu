@@ -134,8 +134,8 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 
 #Add buttons and labels
 # First Row
-#make_button("Menu item 1", 40, 40, cyan)
-#make_button("Menu item 2", 260, 40, cyan)
+make_button("Menu item 1", 40, 40, cyan)
+make_button("Menu item 2", 260, 40, cyan)
 # Second Row
 make_button("Menu item 3", 40, 110, cyan)
 make_button("Menu item 4", 260, 110, cyan)

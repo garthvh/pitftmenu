@@ -10,7 +10,7 @@ pygame.init()
 
 #define function for printing text in a specific place and with a specific colour and adding a border
 def make_button(text, xpo, ypo, colour):
-    font=pygame.font.Font(None,24)
+    font=pygame.font.Font(None,32)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
     pygame.draw.rect(screen, cream, (xpo-10,ypo-10,200,60),1)

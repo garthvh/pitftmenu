@@ -54,6 +54,12 @@ def on_click():
             print "You pressed the button 4 in column 2"
             button(8)
 
+#run Commands
+def run_cmd(cmd):
+        p = Popen(cmd, shell=True, stdout=PIPE)
+        output = p.communicate()[0]
+        return output
+
 #define action on pressing buttons
 def button(number):
     print "You pressed button ",number
@@ -103,10 +109,6 @@ def button(number):
         time.sleep(5) #do something interesting here
         sys.exit()
 
-def run_cmd(cmd):
-        p = Popen(cmd, shell=True, stdout=PIPE)
-        output = p.communicate()[0]
-        return output
 
 #set size of the screen
 size = width, height = 480, 320

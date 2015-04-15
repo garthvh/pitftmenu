@@ -10,8 +10,8 @@ pygame.init()
 
 #define function for printing text in a specific place and with a specific colour and adding a border
 def make_button(text, xpo, ypo, colour):
-    font=pygame.font.Font(None,32)
-    label=font.render(str(text), 1, (colour))
+    font=pygame.font.Font(None,36)
+    label=font.render(str(text), 2, (colour))
     screen.blit(label,(xpo,ypo))
     pygame.draw.rect(screen, cream, (xpo-10,ypo-10,200,60),1)
 
@@ -82,12 +82,13 @@ screen = pygame.display.set_mode(size)
 screen.fill(blue) #change the colours if needed
 logo=pygame.image.load("logo.tiff")
 exit=pygame.image.load("exit.tiff")
-screen.blit(logo,(210,5))
+##screen.blit(logo,(210,5))
 screen.blit(exit,(200,130))
 pygame.draw.rect(screen, white, (0,0,480,320),10)
 
 #Add buttons and labels
 make_button("Menu item 1", 40, 40, white)
+make_button("Menu item 2", 40, 240, white)
 ##make_button("Menu item 2", 20, 70, white)
 ##make_button("Menu item 3", 20, 120, white)
 ##make_button("Menu item 4", 20, 170, white)

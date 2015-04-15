@@ -86,15 +86,15 @@ def button(number):
         sys.exit()
 
     if number == 6:
-        time.sleep(5) #do something interesting here
+        #time.sleep(5) #do something interesting here
         sys.exit()
 
     if number == 7:
-        time.sleep(5) #do something interesting here
+        #time.sleep(5) #do something interesting here
         sys.exit()
-        
+
     if number == 8:
-        time.sleep(5) #do something interesting here
+        #time.sleep(5) #do something interesting here
         sys.exit()
 
 

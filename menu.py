@@ -87,10 +87,10 @@ screen = pygame.display.set_mode(size)
 
 #set up the fixed items on the menu
 screen.fill(black) #change the colours if needed
-logo=pygame.image.load("logo.tiff")
-exit=pygame.image.load("exit.tiff")
-##screen.blit(logo,(210,5))
-screen.blit(exit,(200,130))
+#logo=pygame.image.load("logo.tiff")
+#exit=pygame.image.load("exit.tiff")
+#screen.blit(logo,(210,5))
+#screen.blit(exit,(200,130))
 pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 
 #Add buttons and labels

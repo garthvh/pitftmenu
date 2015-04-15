@@ -13,7 +13,7 @@ def make_button(text, xpo, ypo, colour):
     font=pygame.font.Font(None,36)
     label=font.render(str(text), 2, (colour))
     screen.blit(label,(xpo,ypo))
-    pygame.draw.rect(screen, cream, (xpo-15,ypo-15,200,50),1)
+    pygame.draw.rect(screen, cream, (xpo-10,ypo-10,200,50),1)
 
 #define function that checks for mouse location
 def on_click():

@@ -22,11 +22,11 @@ def on_click():
     # click_pos[1] = y
     #now check to see if button 1 was pressed
     if 40 <= click_pos[0] <= 240 and 40 <= click_pos[1] <=90:
-            print "You pressed button 1"
+            print "You pressed the button 1 in column 1"
             button(1)
     #now check to see if button 2 was pressed
-    if 15 <= click_pos[0] <= 125 and 65 <= click_pos[1] <=100:
-            print "You pressed button 2"
+    if 260 <= click_pos[0] <= 460 and 40 <= click_pos[1] <=90:
+            print "You pressed the button 1 in column 2"
             button(2)
     #now check to see if button 3 was pressed
     if 15 <= click_pos[0] <= 125 and 115 <= click_pos[1] <=150:
@@ -37,6 +37,8 @@ def on_click():
             print "You pressed button 4"
             button(4)
 
+
+make_button("Menu item 2", 260, 40, cyan)
 #define action on pressing buttons
 def button(number):
     print "You pressed button ",number
@@ -94,7 +96,7 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 #Add buttons and labels
 # First Row
 make_button("Menu item 1", 40, 40, cyan)
-make_button("Menu item 2", 260, 40, cyan)
+
 # Second Row
 make_button("Menu item 3", 40, 110, cyan)
 make_button("Menu item 4", 260, 110, cyan)

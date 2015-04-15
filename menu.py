@@ -13,7 +13,7 @@ def make_button(text, xpo, ypo, colour):
     font=pygame.font.Font(None,24)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
-    pygame.draw.rect(screen, cream, (xpo-5,ypo-5,110,35),1)
+    pygame.draw.rect(screen, cream, (xpo-10,ypo-10,110,35),2)
 
 #define function that checks for mouse location
 def on_click():
@@ -84,7 +84,7 @@ logo=pygame.image.load("logo.tiff")
 exit=pygame.image.load("exit.tiff")
 screen.blit(logo,(210,5))
 screen.blit(exit,(200,130))
-pygame.draw.rect(screen, white, (0,0,480,240),5)
+pygame.draw.rect(screen, white, (0,0,480,240),1)
 
 #Add buttons and labels
 make_button("Menu item 1", 20, 20, white)

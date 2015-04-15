@@ -103,6 +103,9 @@ make_button("Menu item 4", 260, 110, cyan)
 # Third Row
 make_button("Menu item 5", 40, 180, cyan)
 make_button("Menu item 6", 260, 180, cyan)
+# Fourth Row
+make_button("Menu item 5", 40, 260, cyan)
+make_button("Menu item 6", 260, 260, cyan)
 
 #While loop to manage touch screen inputs
 while 1:

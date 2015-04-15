@@ -68,7 +68,7 @@ def button(number):
         sys.exit()
 
 #set size of the screen
-size = width, height = 320, 240
+size = width, height = 480, 320
 
 #define colours
 blue = 26, 0, 255
@@ -84,7 +84,7 @@ logo=pygame.image.load("logo.tiff")
 exit=pygame.image.load("exit.tiff")
 screen.blit(logo,(210,5))
 screen.blit(exit,(200,130))
-pygame.draw.rect(screen, white, (0,0,320,240),1)
+pygame.draw.rect(screen, white, (0,0,480,320),1)
 
 #Add buttons and labels
 make_button("Menu item 1", 20, 20, white)
@@ -108,4 +108,3 @@ while 1:
             if event.key == K_ESCAPE:
                 sys.exit()
     pygame.display.update()
-

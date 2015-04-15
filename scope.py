@@ -45,7 +45,7 @@ class pyscope :
 
         # size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
         # print "Framebuffer size: %d x %d" % (size[0], size[1])
-        size = width, height = 320, 240
+        size = width, height = 480, 320
         self.screen = pygame.display.set_mode(size)
         # Clear the screen to start
         self.screen.fill((0, 0, 0))

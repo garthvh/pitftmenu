@@ -66,8 +66,8 @@ def button(number):
         sys.exit()
 
     if number == 1:
-        ip_address_cmd = "ip addr show eth0 | grep inet | awk '{print $2}' | cut -d/ -f1"
         screen.fill(black)
+        ip_address_cmd = "ip addr show eth0 | grep inet | awk '{print $2}' | cut -d/ -f1"
         font=pygame.font.Font(None,36)
         label=font.render(run_cmd(ip_address_cmd), 1, (white))
         screen.blit(label,(105,120))

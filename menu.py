@@ -75,11 +75,9 @@ def button(number):
     if number == 1:
         screen.fill(black)
         ip_address_cmd = "ip addr show eth0 | grep inet | awk '{print $2}' | cut -d/ -f1"
-        font=pygame.font.Font(None,36)
-        label=font.render(run_cmd(ip_address_cmd), 1, (white))
-        screen.blit(label,(105,120))
-        #time.sleep(5) #do something interesting here
-        #sys.exit()
+        print run_cmd(ip_address_cmd)
+        time.sleep(5) #do something interesting here
+        sys.exit()
 
     if number == 2:
         time.sleep(5) #do something interesting here

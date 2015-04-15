@@ -37,8 +37,6 @@ def on_click():
             print "You pressed button 4"
             button(4)
 
-
-make_button("Menu item 2", 260, 40, cyan)
 #define action on pressing buttons
 def button(number):
     print "You pressed button ",number

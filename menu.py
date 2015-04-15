@@ -3,6 +3,7 @@ from pygame.locals import *
 import time
 import subprocess
 import os
+from subprocess import *
 os.environ["SDL_FBDEV"] = "/dev/fb1"
 os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"

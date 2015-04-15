@@ -18,14 +18,12 @@ def make_button(text, xpo, ypo, colour):
 #define function that checks for mouse location
 def on_click():
     click_pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
-    #check to see if exit has been pressed
-    #if 200 <= click_pos[0] <= 300 and 130 <= click_pos[1] <=230:
-    #    print "You pressed exit"
-    #    button(0)
+    # click_pos[0] = x
+    # click_pos[1] = y
     #now check to see if button 1 was pressed
-    if 20 <= click_pos[0] <= 185 and 15 <= click_pos[1] <=50:
-                print "You pressed button 1"
-                button(1)
+    if 40 <= click_pos[0] <= 240 and 40 <= click_pos[1] <=90:
+            print "You pressed button 1"
+            button(1)
     #now check to see if button 2 was pressed
     if 15 <= click_pos[0] <= 125 and 65 <= click_pos[1] <=100:
             print "You pressed button 2"

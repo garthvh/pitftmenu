@@ -76,7 +76,7 @@ def button(number):
         screen.fill(black)
         ip_address_cmd = "ip addr show eth0 | grep inet | awk '{print $2}' | cut -d/ -f1"
         ip_address = run_cmd(ip_address_cmd)
-        print ip_address_cmd
+        print ip_address
         time.sleep(5) #do something interesting here
         sys.exit()
 

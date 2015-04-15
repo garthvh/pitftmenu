@@ -81,6 +81,7 @@ magenta = (255,   0, 255)
 yellow  = (255, 255,   0)
 orange  = (255, 127,   0)
 cream   = (254, 255, 250)
+#cream = 254, 255, 250
 
 screen = pygame.display.set_mode(size)
 

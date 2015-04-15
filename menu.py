@@ -91,7 +91,7 @@ logo=pygame.image.load("logo.tiff")
 exit=pygame.image.load("exit.tiff")
 ##screen.blit(logo,(210,5))
 screen.blit(exit,(200,130))
-pygame.draw.rect(screen, white, (0,0,480,320),10)
+pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 
 #Add buttons and labels
 # First Row
@@ -103,8 +103,6 @@ make_button("Menu item 4", 260, 110, cyan)
 # Third Row
 make_button("Menu item 5", 40, 180, cyan)
 make_button("Menu item 6", 260, 180, cyan)
-##make_button("Menu item 3", 20, 120, white)
-##make_button("Menu item 4", 20, 170, white)
 
 #While loop to manage touch screen inputs
 while 1:

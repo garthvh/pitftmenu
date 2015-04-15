@@ -28,14 +28,14 @@ def on_click():
     if 260 <= click_pos[0] <= 460 and 40 <= click_pos[1] <=90:
             print "You pressed the button 1 in column 2"
             button(2)
-    #now check to see if button 3 was pressed
-    if 15 <= click_pos[0] <= 125 and 115 <= click_pos[1] <=150:
-            print "You pressed button 3"
+    #now check to see if button 1 was pressed
+    if 40 <= click_pos[0] <= 240 and 100 <= click_pos[1] <=150:
+            print "You pressed the button 1 in column 1"
             button(3)
-    #now check to see if button 4 was pressed
-    if 15 <= click_pos[0] <= 125 and 165 <= click_pos[1] <=200:
-            print "You pressed button 4"
-            button(4)
+    #now check to see if button 2 was pressed
+    if 260 <= click_pos[0] <= 460 and 100 <= click_pos[1] <=150:
+            print "You pressed the button 1 in column 2"
+            button(4)        
 
 #define action on pressing buttons
 def button(number):

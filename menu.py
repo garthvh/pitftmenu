@@ -81,6 +81,23 @@ def button(number):
         time.sleep(5) #do something interesting here
         sys.exit()
 
+    if number == 5:
+        time.sleep(5) #do something interesting here
+        sys.exit()
+
+    if number == 6:
+        time.sleep(5) #do something interesting here
+        sys.exit()
+
+    if number == 7:
+        time.sleep(5) #do something interesting here
+        sys.exit()
+        
+    if number == 8:
+        time.sleep(5) #do something interesting here
+        sys.exit()
+
+
 #set size of the screen
 size = width, height = 480, 320
 

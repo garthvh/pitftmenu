@@ -66,6 +66,11 @@ def button(number):
         sys.exit()
 
     if number == 1:
+        ip_address_cmd = "ip addr show eth0 | grep inet | awk '{print $2}' | cut -d/ -f1"
+        screen.fill(black)
+        font=pygame.font.Font(None,36)
+        label=font.render(run_cmd(ip_address_cmd), 1, (white))
+        screen.blit(label,(105,120))
         time.sleep(5) #do something interesting here
         sys.exit()
 
@@ -86,17 +91,21 @@ def button(number):
         sys.exit()
 
     if number == 6:
-        #time.sleep(5) #do something interesting here
+        time.sleep(5) #do something interesting here
         sys.exit()
 
     if number == 7:
-        #time.sleep(5) #do something interesting here
+        time.sleep(5) #do something interesting here
         sys.exit()
 
     if number == 8:
-        #time.sleep(5) #do something interesting here
+        time.sleep(5) #do something interesting here
         sys.exit()
 
+def run_cmd(cmd):
+        p = Popen(cmd, shell=True, stdout=PIPE)
+        output = p.communicate()[0]
+        return output
 
 #set size of the screen
 size = width, height = 480, 320
@@ -112,7 +121,6 @@ magenta = (255,   0, 255)
 yellow  = (255, 255,   0)
 orange  = (255, 127,   0)
 cream   = (254, 255, 250)
-#cream = 254, 255, 250
 
 screen = pygame.display.set_mode(size)
 
@@ -126,8 +134,8 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 
 #Add buttons and labels
 # First Row
-make_button("Menu item 1", 40, 40, cyan)
-make_button("Menu item 2", 260, 40, cyan)
+#make_button("Menu item 1", 40, 40, cyan)
+#make_button("Menu item 2", 260, 40, cyan)
 # Second Row
 make_button("Menu item 3", 40, 110, cyan)
 make_button("Menu item 4", 260, 110, cyan)

@@ -10,8 +10,8 @@ pygame.init()
 
 #define function for printing text in a specific place and with a specific colour and adding a border
 def make_button(text, xpo, ypo, colour):
-    font=pygame.font.Font(None,36)
-    label=font.render(str(text), 2, (colour))
+    font=pygame.font.Font(None,42)
+    label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
     pygame.draw.rect(screen, cream, (xpo-10,ypo-10,200,50),1)
 
@@ -70,11 +70,17 @@ def button(number):
 #set size of the screen
 size = width, height = 480, 320
 
-#define colours
-blue = 26, 0, 255
-cream = 254, 255, 250
-black = 0, 0, 0
-white = 255, 255, 255
+#colors     R    G    B
+white   = (255, 255, 255)
+red     = (255,   0,   0)
+green   = (  0, 255,   0)
+blue    = (  0,   0, 255)
+black   = (  0,   0,   0)
+cyan    = ( 50, 255, 255)
+magenta = (255,   0, 255)
+yellow  = (255, 255,   0)
+orange  = (255, 127,   0)
+cream   = (254, 255, 250)
 
 screen = pygame.display.set_mode(size)
 

@@ -13,7 +13,7 @@ def make_button(text, xpo, ypo, colour):
     font=pygame.font.Font(None,42)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
-    pygame.draw.rect(screen, cream, (xpo-10,ypo-10,200,50),1)
+    pygame.draw.rect(screen, cyan, (xpo-10,ypo-10,200,50),1)
 
 #define function that checks for mouse location
 def on_click():
@@ -86,7 +86,7 @@ cream   = (254, 255, 250)
 screen = pygame.display.set_mode(size)
 
 #set up the fixed items on the menu
-screen.fill(blue) #change the colours if needed
+screen.fill(black) #change the colours if needed
 logo=pygame.image.load("logo.tiff")
 exit=pygame.image.load("exit.tiff")
 ##screen.blit(logo,(210,5))
@@ -95,14 +95,14 @@ pygame.draw.rect(screen, white, (0,0,480,320),10)
 
 #Add buttons and labels
 # First Row
-make_button("Menu item 1", 40, 40, white)
-make_button("Menu item 2", 260, 40, white)
+make_button("Menu item 1", 40, 40, cyan)
+make_button("Menu item 2", 260, 40, cyan)
 # Second Row
-make_button("Menu item 3", 40, 110, white)
-make_button("Menu item 4", 260, 110, white)
+make_button("Menu item 3", 40, 110, cyan)
+make_button("Menu item 4", 260, 110, cyan)
 # Third Row
-make_button("Menu item 5", 40, 180, white)
-make_button("Menu item 6", 260, 180, white)
+make_button("Menu item 5", 40, 180, cyan)
+make_button("Menu item 6", 260, 180, cyan)
 ##make_button("Menu item 3", 20, 120, white)
 ##make_button("Menu item 4", 20, 170, white)
 

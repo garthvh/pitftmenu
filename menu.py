@@ -10,10 +10,10 @@ pygame.init()
 
 #define function for printing text in a specific place and with a specific colour and adding a border
 def make_button(text, xpo, ypo, colour):
-    font=pygame.font.Font(None,24)
+    font=pygame.font.Font(None,32)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
-    pygame.draw.rect(screen, cream, (xpo-20,ypo-20,150,50),1)
+    pygame.draw.rect(screen, cream, (xpo-5,ypo-5,150,50),1)
 
 #define function that checks for mouse location
 def on_click():
@@ -87,10 +87,10 @@ screen.blit(exit,(200,130))
 pygame.draw.rect(screen, white, (0,0,480,240),1)
 
 #Add buttons and labels
-make_button("Menu item 1", 20, 20, white)
-make_button("Menu item 2", 20, 70, white)
-make_button("Menu item 3", 20, 120, white)
-make_button("Menu item 4", 20, 170, white)
+make_button("Menu item 1", 40, 40, white)
+make_button("Menu item 2", 40, 70, white)
+make_button("Menu item 3", 40, 120, white)
+make_button("Menu item 4", 40, 170, white)
 
 #While loop to manage touch screen inputs
 while 1:

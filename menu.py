@@ -47,12 +47,6 @@ def run_cmd(cmd):
     output = p.communicate()[0]
     return output
 
-def desktop():
-    command = "startx"
-    process = Popen(command.split(), stdout=PIPE)
-    output = process.communicate()[0]
-    return output
-
 def restart():
     command = "/usr/bin/sudo /sbin/shutdown -r now"
     process = Popen(command.split(), stdout=PIPE)
@@ -77,8 +71,9 @@ def button(number):
         screen.blit(label,(50,120))
         pygame.display.flip()
         pygame.quit()
+        subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
         sys.exit()
-        desktop()
+
 
     if number == 4:
         # exit

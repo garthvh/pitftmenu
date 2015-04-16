@@ -67,6 +67,18 @@ def run_cmd(cmd):
     output = p.communicate()[0]
     return output
 
+def desktop():
+    command = "startx"
+    process = Popen(command.split(), stdout=PIPE)
+    output = process.communicate()[0]
+    return output
+
+def restart():
+    command = "/usr/bin/sudo /sbin/shutdown -r now"
+    process = Popen(command.split(), stdout=PIPE)
+    output = process.communicate()[0]
+    return output
+
 def shutdown():
     command = "/usr/bin/sudo /sbin/shutdown -h now"
     process = Popen(command.split(), stdout=PIPE)
@@ -78,24 +90,37 @@ def button(number):
     print "You pressed button ",number
 
     if number == 3:
-        os.system("startx")
+        # desktop
+        screen.fill(black)
+        font=pygame.font.Font(None,72)
+        label=font.render("Launching Desktop now!", 1, (white))
+        screen.blit(label,(105,120))
+        pygame.display.flip()
+        desktop()
         sys.exit()
 
     if number == 4:
-        time.sleep(5) #do something interesting here
+        # exit
         sys.exit()
 
     if number == 5:
+        # reboot
         screen.fill(black)
         font=pygame.font.Font(None,72)
-        label=font.render("Good Bye!", 1, (white))
+        label=font.render("Rebooting Now!", 1, (white))
         screen.blit(label,(105,120))
         pygame.display.flip()
-        time.sleep(5)
+        restart()
         sys.exit()
 
     if number == 6:
-        time.sleep(5) #do something interesting here
+        # shutdown
+        screen.fill(black)
+        font=pygame.font.Font(None,72)
+        label=font.render("Shutting Down Now!", 1, (white))
+        screen.blit(label,(105,120))
+        pygame.display.flip()
+        shutdown()
         sys.exit()
 
 
@@ -126,10 +151,10 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 #make_button("Menu Item 2", 260, 40, 50, 200, cyan)
 make_button("  Garth's Simple Pi Interface ", 40, 40, 50, 420, cyan)
 # Second Row buttons 3 and 4
-make_button(" Menu item 3", 40, 110, 50, 200, cyan)
-make_button(" Menu item 4", 260, 110, 50, 200, cyan)
+make_button(" Desktop ", 40, 110, 50, 200, cyan)
+make_button("     Exit", 260, 110, 50, 200, cyan)
 # Third Row buttons 5 and 6
-make_button("    Exit    ", 40, 180, 50, 200, cyan)
+make_button("    Reboot    ", 40, 180, 50, 200, cyan)
 make_button("   Shutdown ", 260, 180, 50, 200, cyan)
 # Fourth Row buttons 7 and 8
 #make_button("Menu item 7", 40, 250, 50, 200, cyan)

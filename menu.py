@@ -60,6 +60,13 @@ def run_cmd(cmd):
         output = p.communicate()[0]
         return output
 
+def shutdown():
+    command = "/usr/bin/sudo /sbin/shutdown -h now"
+    import subprocess
+    process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+    output = process.communicate()[0]
+    print output
+
 #define action on pressing buttons
 def button(number):
     print "You pressed button ",number
@@ -76,9 +83,7 @@ def button(number):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(('google.com', 0))
         ip_address = s.getsockname()[0]
-        print ip_address
-        button_text="     Current IP " +  ip_address
-        make_button(button_text, 40, 250, 50, 420, cyan)
+        make_button("     Current IP " +  ip_address, 40, 250, 50, 420, cyan)
 
     if number == 2:
         time.sleep(5) #do something interesting here
@@ -97,6 +102,7 @@ def button(number):
         sys.exit()
 
     if number == 6:
+        shutdown()
         time.sleep(5) #do something interesting here
         sys.exit()
 
@@ -144,7 +150,7 @@ make_button("Menu item 3", 40, 110, 50, 200, cyan)
 make_button("Menu item 4", 260, 110, 50, 200, cyan)
 # Third Row
 make_button("Menu item 5", 40, 180, 50, 200, cyan)
-make_button("Menu item 6", 260, 180, 50, 200, cyan)
+make_button("Shutdown", 260, 180, 50, 200, cyan)
 # Fourth Row
 #make_button("Menu item 7", 40, 250, 50, 200, cyan)
 #make_button("Menu item 8", 260, 250, 50, 200, cyan)

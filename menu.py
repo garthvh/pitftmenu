@@ -10,11 +10,11 @@ os.environ["SDL_MOUSEDRV"] = "TSLIB"
 pygame.init()
 
 #define function for printing text in a specific place and with a specific colour and adding a border
-def make_button(text, xpo, ypo, colour):
+def make_button(text, xpo, ypo, height, width, colour):
     font=pygame.font.Font(None,42)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
-    pygame.draw.rect(screen, cyan, (xpo-10,ypo-10,200,50),1)
+    pygame.draw.rect(screen, cyan, (xpo-10,ypo-10,width,height),1)
 
 #define function that checks for mouse location
 def on_click():
@@ -73,15 +73,11 @@ def button(number):
         sys.exit()
 
     if number == 1:
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(('google.com', 0))
         ip_address = s.getsockname()[0]
         print ip_address
-        label=font.render(ip_address, 1, (white))
-        screen.blit(label,(105,120))
-        pygame.display.flip()
+        make_button(ip_address, 40, 250, 50, 400, cyan)
 
     if number == 2:
         time.sleep(5) #do something interesting here
@@ -139,17 +135,18 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 
 #Add buttons and labels
 # First Row
-make_button("IP Address", 40, 40, cyan)
-make_button("Menu item 2", 260, 40, cyan)
+make_button("Menu item 1", 40, 40, 50, 200, cyan)
+make_button("IP Address", 40, 40, 50, 200, cyan)
+make_button("Menu item 2", 260, 40, 50, 200, cyan)
 # Second Row
-make_button("Menu item 3", 40, 110, cyan)
-make_button("Menu item 4", 260, 110, cyan)
+make_button("Menu item 3", 40, 110, 50, 200, cyan)
+make_button("Menu item 4", 260, 110, 50, 200, cyan)
 # Third Row
-make_button("Menu item 5", 40, 180, cyan)
-make_button("Menu item 6", 260, 180, cyan)
+make_button("Menu item 5", 40, 180, 50, 200, cyan)
+make_button("Menu item 6", 260, 180, 50, 200, cyan)
 # Fourth Row
-make_button("Menu item 7", 40, 250, cyan)
-make_button("Menu item 8", 260, 250, cyan)
+#make_button("Menu item 7", 40, 250, 50, 200, cyan)
+#make_button("Menu item 8", 260, 250, 50, 200, cyan)
 
 #While loop to manage touch screen inputs
 while 1:

@@ -74,7 +74,7 @@ def button(number):
 
     if number == 1:
         screen.fill(black)
-        font=pygame.font.Font(None,36)
+        font=pygame.font.Font(None,72)
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(('google.com', 0))
         ip_address = s.getsockname()[0]
@@ -139,7 +139,7 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 
 #Add buttons and labels
 # First Row
-make_button("Menu item 1", 40, 40, cyan)
+make_button("IP Address", 40, 40, cyan)
 make_button("Menu item 2", 260, 40, cyan)
 # Second Row
 make_button("Menu item 3", 40, 110, cyan)

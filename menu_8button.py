@@ -131,28 +131,28 @@ orange  = (255, 127,   0)
 cream   = (254, 255, 250)
 
 screen = pygame.display.set_mode(size)
+"""
+Set up the base menu you can customize your menu with the colors above
+"""
+# Background Color
+screen.fill(black)
 
-#set up the fixed items on the menu
-screen.fill(black) #change the colours if needed
-#logo=pygame.image.load("logo.tiff")
-#exit=pygame.image.load("exit.tiff")
-#screen.blit(logo,(210,5))
-#screen.blit(exit,(200,130))
-pygame.draw.rect(screen, cyan, (0,0,480,320),10)
+# Outer Border
+pygame.draw.rect(screen, blue, (0,0,480,320),10)
 
-#Add buttons and labels
+# Buttons and labels
 # First Row
-make_button("Menu Item 1", 30, 30, 55, 210, cyan)
-make_button("Menu Item 2", 260, 30, 55, 210, cyan)
+make_button("Menu Item 1", 30, 30, 55, 210, blue)
+make_button("Menu Item 2", 260, 30, 55, 210, blue)
 # Second Row
-make_button("Menu Item 3", 40, 110, 50, 200, cyan)
-make_button("Menu item 4", 260, 110, 50, 200, cyan)
+make_button("Menu Item 3", 40, 110, 50, 200, blue)
+make_button("Menu item 4", 260, 110, 50, 200, blue)
 # Third Row
-make_button("Menu item 5", 40, 180, 50, 200, cyan)
-make_button("Menu item 6", 260, 180, 50, 200, cyan)
+make_button("Menu item 5", 40, 180, 50, 200, blue)
+make_button("Menu item 6", 260, 180, 50, 200, blue)
 # Fourth Row
-make_button("Menu item 7", 40, 250, 50, 200, cyan)
-make_button("Menu item 8", 260, 250, 50, 200, cyan)
+make_button("Menu item 7", 30, 260, 55, 210, blue)
+make_button("Menu item 8", 270, 260, 55, 210, blue)
 
 #While loop to manage touch screen inputs
 while 1:

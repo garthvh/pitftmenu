@@ -6,7 +6,9 @@ Runs as a python script in the framebuffer without needing a desktop environment
 
 I have made a model b+ [Touch Pi](https://learn.adafruit.com/touch-pi-portable-raspberry-pi) 3D printed case for my screen and raspberry pi, and with a battery and [PowerBoost 500c](https://www.adafruit.com/product/1944) charger it makes a great base for raspberry pi projects.
 
-Written using python and pygame the 3.5" screen is broken out into 8 menu items.
+I wanted a way to do common tasks like going to the desktop, rebooting and shutting down without needing to use a keyboard.  I also wanted the screen to display the current IP address to make it easier to ssh into the device.
+
+Written using python and pygame the 3.5" screen is broken out into 8 large touchable menu areas.
 
 ## Installation
 

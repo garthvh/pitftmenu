@@ -123,7 +123,7 @@ screen = pygame.display.set_mode(size)
 screen.fill(black)
 
 # Outer Border
-pygame.draw.rect(screen, blue, (0,0,480,320),5)
+pygame.draw.rect(screen, blue, (0,0,480,320),10)
 
 # Buttons and labels
 # First Row Label

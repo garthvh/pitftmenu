@@ -64,7 +64,7 @@ def button(number):
         screen.fill(black)
         font=pygame.font.Font(None,72)
         label=font.render("Launching Desktop", 1, (white))
-        screen.blit(label,(20,120))
+        screen.blit(label,(10,120))
         pygame.display.flip()
         pygame.quit()
         subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
@@ -123,7 +123,7 @@ screen = pygame.display.set_mode(size)
 screen.fill(black)
 
 # Outer Border
-pygame.draw.rect(screen, blue, (0,0,480,320),10)
+pygame.draw.rect(screen, blue, (0,0,480,320),15)
 
 # Buttons and labels
 # First Row Label

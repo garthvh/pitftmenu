@@ -41,12 +41,14 @@ def get_ip():
     s.connect(('<broadcast>', 0))
     return s.getsockname()[0]
 
+# Restart Raspberry Pi
 def restart():
     command = "/usr/bin/sudo /sbin/shutdown -r now"
     process = Popen(command.split(), stdout=PIPE)
     output = process.communicate()[0]
     return output
 
+# Shutdown Raspberry Pi
 def shutdown():
     command = "/usr/bin/sudo /sbin/shutdown -h now"
     process = Popen(command.split(), stdout=PIPE)
@@ -70,6 +72,12 @@ def button(number):
 
     if number == 4:
         # exit
+        screen.fill(black)
+        font=pygame.font.Font(None,72)
+        label=font.render("Goodbye", 1, (white))
+        screen.blit(label,(80,120))
+        pygame.display.flip()
+        pygame.quit()
         sys.exit()
 
     if number == 5:
@@ -121,7 +129,7 @@ pygame.draw.rect(screen, blue, (0,0,480,320),10)
 
 #Add buttons and labels
 # First Row Label
-make_button("Garth's Touch Pi Interface", 30, 30, 55, 440, blue)
+make_button("   Garth's Touch Pi Interface", 30, 30, 55, 440, blue)
 # Second Row buttons 3 and 4
 make_button("     Desktop", 30, 105, 55, 210, blue)
 make_button("         Exit", 260, 105, 55, 210, blue)
@@ -129,7 +137,7 @@ make_button("         Exit", 260, 105, 55, 210, blue)
 make_button("      Reboot", 30, 180, 55, 210, blue)
 make_button("   Shutdown", 260, 180, 55, 210, blue)
 # Fourth Row Label
-make_button("     Current IP: " +  get_ip(), 30, 260, 54, 440, blue)
+make_button("     Current IP: " +  get_ip(), 30, 255, 55, 440, blue)
 
 #While loop to manage touch screen inputs
 while 1:

@@ -13,15 +13,15 @@ Written using python and pygame the 3.5" screen is broken out into 8  menu items
     git clone https://github.com/garthvh/pitftmenu
     cd pitftmenu
 
-The basic 8 Button Template can be run with the following command:
+The basic 8 Button Template can be run with the following command the buttons in this example simply print out the number of the button pushed and closes the menu:
 
     sudo python menu_8button.py
 
-My base project template can be run with
+My basic touch pi menu with a top label, buttons for Desktop, Exit, Reboot and Shutdown.  This screen also displays your current ip address.
 
-    sudo python menu.py
+    sudo python menu_touchpi.py
 
-If you want to enable the shutdown command you will need to make the following updates
+If you want to enable the reboot and shutdown commands you will need to make the following updates
 
     sudo visudo
 

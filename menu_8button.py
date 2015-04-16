@@ -145,14 +145,14 @@ pygame.draw.rect(screen, blue, (0,0,480,320),10)
 make_button("Menu Item 1", 30, 30, 55, 210, blue)
 make_button("Menu Item 2", 260, 30, 55, 210, blue)
 # Second Row
-make_button("Menu Item 3", 30, 100, 55, 210, blue)
-make_button("Menu item 4", 260, 100, 55, 210, blue)
+make_button("Menu Item 3", 30, 105, 55, 210, blue)
+make_button("Menu item 4", 260, 105, 55, 210, blue)
 # Third Row
 make_button("Menu item 5", 30, 180, 55, 210, blue)
 make_button("Menu item 6", 260, 180, 55, 210, blue)
 # Fourth Row
-make_button("Menu item 7", 30, 260, 55, 210, blue)
-make_button("Menu item 8", 260, 260, 55, 210, blue)
+make_button("Menu item 7", 30, 255, 55, 210, blue)
+make_button("Menu item 8", 260, 255, 55, 210, blue)
 
 #While loop to manage touch screen inputs
 while 1:

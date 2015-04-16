@@ -17,7 +17,7 @@ The basic 8 Button Template can be run with the following command the buttons in
 
     sudo python menu_8button.py
 
-My basic touch pi menu with a top label, buttons for Desktop, Exit, Reboot and Shutdown.  This screen also displays your current ip address.
+My basic touch pi menu with a top label, buttons for Desktop, Terminal, Reboot and Shutdown.  This menu also displays your current ip address at the bottom.
 
     sudo python menu_touchpi.py
 

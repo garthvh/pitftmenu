@@ -129,13 +129,13 @@ pygame.draw.rect(screen, blue, (0,0,480,320),10)
 
 #Add buttons and labels
 # First Row Label
-make_button("   Garth's Touch Pi Interface", 30, 30, 55, 440, blue)
+make_button("    Garth's Touch Pi Interface", 30, 30, 55, 440, blue)
 # Second Row buttons 3 and 4
 make_button("     Desktop", 30, 105, 55, 210, blue)
-make_button("         Exit", 260, 105, 55, 210, blue)
+make_button("    Terminal", 260, 105, 55, 210, blue)
 # Third Row buttons 5 and 6
 make_button("      Reboot", 30, 180, 55, 210, blue)
-make_button("   Shutdown", 260, 180, 55, 210, blue)
+make_button("    Shutdown", 260, 180, 55, 210, blue)
 # Fourth Row Label
 make_button("     Current IP: " +  get_ip(), 30, 255, 55, 440, blue)
 

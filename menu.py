@@ -77,7 +77,7 @@ def button(number):
         s.connect(('google.com', 0))
         ip_address = s.getsockname()[0]
         print ip_address
-        button_text="Current IP " +  ip_address
+        button_text="     Current IP " +  ip_address
         make_button(button_text, 40, 250, 50, 420, cyan)
 
     if number == 2:

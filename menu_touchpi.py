@@ -14,7 +14,7 @@ def make_button(text, xpo, ypo, height, width, colour):
     font=pygame.font.Font(None,42)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
-    pygame.draw.rect(screen, blue, (xpo-10,ypo-10,width,height),3)
+    pygame.draw.rect(screen, blue, (xpo-10,ypo-10,width,height),5)
 
 # define function that checks for touch location
 def on_touch():
@@ -123,7 +123,7 @@ screen = pygame.display.set_mode(size)
 screen.fill(black)
 
 # Outer Border
-pygame.draw.rect(screen, blue, (0,0,480,320),15)
+pygame.draw.rect(screen, blue, (0,0,480,320),5)
 
 # Buttons and labels
 # First Row Label

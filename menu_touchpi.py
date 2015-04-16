@@ -133,7 +133,7 @@ pygame.draw.rect(screen, blue, (0,0,480,320),10)
 
 # Buttons and labels
 # First Row Label
-make_label("     Garth's Touch Pi Interface", 30, 30, 72, blue)
+make_label("     Garth's Touch Pi Interface", 30, 30, 42, blue)
 # Second Row buttons 3 and 4
 make_button("     Desktop", 30, 105, 55, 210, blue)
 make_button("    Terminal", 260, 105, 55, 210, blue)

@@ -84,10 +84,6 @@ def button(number):
         time.sleep(5)
         sys.exit()
 
-    if number == 1:
-
-    if number == 2:
-
     if number == 3:
         time.sleep(5) #do something interesting here
         sys.exit()
@@ -103,10 +99,6 @@ def button(number):
     if number == 6:
         time.sleep(5) #do something interesting here
         sys.exit()
-
-    if number == 7:
-
-    if number == 8:
 
 
 #set size of the screen

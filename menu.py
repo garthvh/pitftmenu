@@ -14,7 +14,7 @@ def make_button(text, xpo, ypo, height, width, colour):
     font=pygame.font.Font(None,42)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
-    pygame.draw.rect(screen, cyan, (xpo-10,ypo-10,width,height),3)
+    pygame.draw.rect(screen, blue, (xpo-10,ypo-10,width,height),3)
 
 # define function that checks for touch location
 def on_touch():
@@ -61,8 +61,8 @@ def button(number):
         # desktop
         screen.fill(black)
         font=pygame.font.Font(None,72)
-        label=font.render("Launching Desktop now!", 1, (white))
-        screen.blit(label,(50,120))
+        label=font.render("Launching Desktop. . .", 1, (white))
+        screen.blit(label,(30,120))
         pygame.display.flip()
         pygame.quit()
         subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
@@ -76,9 +76,10 @@ def button(number):
         # reboot
         screen.fill(black)
         font=pygame.font.Font(None,72)
-        label=font.render("Rebooting Now!", 1, (white))
-        screen.blit(label,(50,120))
+        label=font.render("Rebooting. . .", 1, (white))
+        screen.blit(label,(30,120))
         pygame.display.flip()
+        pygame.quit()
         restart()
         sys.exit()
 
@@ -86,11 +87,11 @@ def button(number):
         # shutdown
         screen.fill(black)
         font=pygame.font.Font(None,72)
-        label=font.render("Shutting Down Now!", 1, (white))
-        screen.blit(label,(50,120))
+        label=font.render("Shutting Down. . .", 1, (white))
+        screen.blit(label,(30,120))
         pygame.display.flip()
-        shutdown()
         pygame.quit()
+        shutdown()
         sys.exit()
 
 #set size of the screen
@@ -120,15 +121,15 @@ pygame.draw.rect(screen, blue, (0,0,480,320),10)
 
 #Add buttons and labels
 # First Row Label
-make_button("Garth's Simple Touch Pi Interface", 30, 30, 55, 440, blue)
+make_button("Garth's Touch Pi Interface", 30, 30, 55, 440, blue)
 # Second Row buttons 3 and 4
 make_button("     Desktop", 30, 105, 55, 210, blue)
-make_button("       Exit", 260, 105, 55, 210, blue)
+make_button("         Exit", 260, 105, 55, 210, blue)
 # Third Row buttons 5 and 6
-make_button("     Reboot", 30, 180, 55, 210, blue)
+make_button("      Reboot", 30, 180, 55, 210, blue)
 make_button("   Shutdown", 260, 180, 55, 210, blue)
 # Fourth Row Label
-make_button("    Current IP: " +  get_ip(), 30, 260, 54, 440, blue)
+make_button("     Current IP: " +  get_ip(), 30, 260, 54, 440, blue)
 
 #While loop to manage touch screen inputs
 while 1:

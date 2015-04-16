@@ -75,14 +75,6 @@ def shutdown():
 #define action on pressing buttons
 def button(number):
     print "You pressed button ",number
-    if number == 0:    #specific script when exiting
-        screen.fill(black)
-        font=pygame.font.Font(None,36)
-        label=font.render("Good Bye!", 1, (white))
-        screen.blit(label,(105,120))
-        pygame.display.flip()
-        time.sleep(5)
-        sys.exit()
 
     if number == 3:
         time.sleep(5) #do something interesting here
@@ -93,7 +85,12 @@ def button(number):
         sys.exit()
 
     if number == 5:
-        time.sleep(5) #do something interesting here
+        screen.fill(black)
+        font=pygame.font.Font(None,36)
+        label=font.render("Good Bye!", 1, (white))
+        screen.blit(label,(105,120))
+        pygame.display.flip()
+        time.sleep(5)
         sys.exit()
 
     if number == 6:
@@ -135,7 +132,7 @@ make_button("  Garth's Simple Pi Interface ", 40, 40, 50, 420, cyan)
 make_button("    Desktop ", 40, 110, 50, 200, cyan)
 make_button(" Menu item 4", 260, 110, 50, 200, cyan)
 # Third Row
-make_button(" Menu item 5", 40, 180, 50, 200, cyan)
+make_button("    Exit    ", 40, 180, 50, 200, cyan)
 make_button("   Shutdown ", 260, 180, 50, 200, cyan)
 # Fourth Row
 #make_button("Menu item 7", 40, 250, 50, 200, cyan)

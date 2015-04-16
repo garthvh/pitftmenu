@@ -85,16 +85,11 @@ def button(number):
         sys.exit()
 
     if number == 1:
-        #time.sleep(5) #do something interesting here
-        #sys.exit()
 
     if number == 2:
-        #time.sleep(5) #do something interesting here
-        #sys.exit()
 
     if number == 3:
-        run_cmd("startx")
-        time.sleep(5)
+        time.sleep(5) #do something interesting here
         sys.exit()
 
     if number == 4:
@@ -106,16 +101,12 @@ def button(number):
         sys.exit()
 
     if number == 6:
-        shutdown()
+        time.sleep(5) #do something interesting here
         sys.exit()
 
     if number == 7:
-        time.sleep(5) #do something interesting here
-        sys.exit()
 
     if number == 8:
-        time.sleep(5) #do something interesting here
-        sys.exit()
 
 
 #set size of the screen

@@ -19,6 +19,8 @@ The basic 8 Button Template can be run with the following command the buttons in
 
 My basic touch pi menu with a top label, buttons for Desktop, Terminal, Reboot and Shutdown.  This menu also displays your current ip address at the bottom.
 
+![Touch Pi Menu](/images/menu_touchpi.jpg "Touch Pi Menu")
+
     sudo python menu_touchpi.py
 
 ### Reboot and Shutdown Buttons
@@ -46,6 +48,7 @@ And add the following line to the bottom of the file
 
 The examples here are cobbled from other code below:
 
+- https://github.com/5Volt-Junkie/RPi-Tron-Radio/blob/master/tron-radio.py
 - http://richardhawthorn.com/?p=128
 - http://www.raspberrypi-spy.co.uk/2013/07/running-a-python-script-at-boot-using-cron/
 - https://github.com/DoctorBud/raspberrypi-node/tree/176f7536d505de17b0d790855a836e0d2cb7d059/pitft-pygame

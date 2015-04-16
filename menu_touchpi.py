@@ -9,14 +9,14 @@ os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"
 pygame.init()
 
-# define function for printing text in a specific place with a specific width and height and with a specific colour and adding a border
+# define function for printing text in a specific place with a specific width and height with a specific colour and border
 def make_button(text, xpo, ypo, height, width, colour):
     font=pygame.font.Font(None,42)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
     pygame.draw.rect(screen, blue, (xpo-10,ypo-10,width,height),5)
 
-# define function for printing text in a specific place with a specific width and height and with a specific colour and adding a border
+# define function for printing text in a specific place with a specific colour
 def make_label(text, xpo, ypo, fontsize, colour):
     font=pygame.font.Font(None,fontsize)
     label=font.render(str(text), 1, (colour))
@@ -24,8 +24,8 @@ def make_label(text, xpo, ypo, fontsize, colour):
 
 # define function that checks for touch location
 def on_touch():
+    # get the position that was touched
     touch_pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
-
     #  x_min                 x_max   y_min                y_max
     # button 3 event
     if 30 <= touch_pos[0] <= 240 and 105 <= touch_pos[1] <=160:
@@ -61,7 +61,7 @@ def shutdown():
     output = process.communicate()[0]
     return output
 
-#define action on pressing buttons
+# Define each button press action
 def button(number):
     print "You pressed button ",number
 
@@ -147,10 +147,7 @@ make_label("Current IP: " +  get_ip(), 45, 255, 48, blue)
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
-            print "screen pressed" #for debugging purposes
             pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
-            print pos #for checking
-            pygame.draw.circle(screen, white, pos, 2, 0) #for debugging purposes - adds a small dot where the screen is pressed
             on_touch()
 
 #ensure there is always a safe way to end the program if the touch screen fails

@@ -152,11 +152,11 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 #make_button("Menu Item 2", 260, 40, 50, 200, cyan)
 make_button("   Garth's Simple Pi Interface", 40, 40, 50, 420, cyan)
 # Second Row
-make_button(" Desktop", 40, 110, 50, 200, cyan)
+make_button("   Desktop  ", 40, 110, 50, 200, cyan)
 make_button(" Menu item 4", 260, 110, 50, 200, cyan)
 # Third Row
 make_button(" Menu item 5", 40, 180, 50, 200, cyan)
-make_button("  Shutdown", 260, 180, 50, 200, cyan)
+make_button("  Shutdown  ", 260, 180, 50, 200, cyan)
 # Fourth Row
 #make_button("Menu item 7", 40, 250, 50, 200, cyan)
 #make_button("Menu item 8", 260, 250, 50, 200, cyan)

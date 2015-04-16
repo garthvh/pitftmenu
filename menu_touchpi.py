@@ -63,7 +63,7 @@ def button(number):
         # desktop
         screen.fill(black)
         font=pygame.font.Font(None,72)
-        label=font.render("Launching Desktop. . .", 1, (white))
+        label=font.render("Launching Desktop. .", 1, (white))
         screen.blit(label,(30,120))
         pygame.display.flip()
         pygame.quit()
@@ -74,8 +74,8 @@ def button(number):
         # exit
         screen.fill(black)
         font=pygame.font.Font(None,72)
-        label=font.render("Goodbye", 1, (white))
-        screen.blit(label,(80,120))
+        label=font.render("Exiting to Terminal", 1, (white))
+        screen.blit(label,(20,120))
         pygame.display.flip()
         pygame.quit()
         sys.exit()
@@ -84,8 +84,8 @@ def button(number):
         # reboot
         screen.fill(black)
         font=pygame.font.Font(None,72)
-        label=font.render("Rebooting. . .", 1, (white))
-        screen.blit(label,(30,120))
+        label=font.render("Rebooting. .", 1, (white))
+        screen.blit(label,(40,120))
         pygame.display.flip()
         pygame.quit()
         restart()
@@ -95,8 +95,8 @@ def button(number):
         # shutdown
         screen.fill(black)
         font=pygame.font.Font(None,72)
-        label=font.render("Shutting Down. . .", 1, (white))
-        screen.blit(label,(30,120))
+        label=font.render("Shutting Down. .", 1, (white))
+        screen.blit(label,(20,120))
         pygame.display.flip()
         pygame.quit()
         shutdown()

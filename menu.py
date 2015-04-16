@@ -77,7 +77,8 @@ def button(number):
         s.connect(('google.com', 0))
         ip_address = s.getsockname()[0]
         print ip_address
-        make_button('Current IP ' % ( ip_address ), 40, 250, 50, 420, cyan)
+        button_text="Current IP " %  ip_address
+        make_button(button_text, 40, 250, 50, 420, cyan)
 
     if number == 2:
         time.sleep(5) #do something interesting here
@@ -136,7 +137,7 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 #Add buttons and labels
 # First Row
 #make_button("Menu item 1", 40, 40, 50, 200, cyan)
-make_button("Show IP Address", 40, 40, 50, 200, cyan)
+make_button(" IP Address", 40, 40, 50, 200, cyan)
 make_button("Menu item 2", 260, 40, 50, 200, cyan)
 # Second Row
 make_button("Menu item 3", 40, 110, 50, 200, cyan)

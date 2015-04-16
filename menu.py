@@ -94,10 +94,13 @@ def button(number):
         screen.fill(black)
         font=pygame.font.Font(None,72)
         label=font.render("Launching Desktop now!", 1, (white))
-        screen.blit(label,(105,120))
+        screen.blit(label,(50,120))
         pygame.display.flip()
+        pygame.quit()
         desktop()
+        pygame.quit()
         sys.exit()
+        pygame.display.update()
 
     if number == 4:
         # exit
@@ -108,7 +111,7 @@ def button(number):
         screen.fill(black)
         font=pygame.font.Font(None,72)
         label=font.render("Rebooting Now!", 1, (white))
-        screen.blit(label,(105,120))
+        screen.blit(label,(50,120))
         pygame.display.flip()
         restart()
         sys.exit()
@@ -118,10 +121,12 @@ def button(number):
         screen.fill(black)
         font=pygame.font.Font(None,72)
         label=font.render("Shutting Down Now!", 1, (white))
-        screen.blit(label,(105,120))
+        screen.blit(label,(50,120))
         pygame.display.flip()
         shutdown()
+        pygame.quit()
         sys.exit()
+        pygame.display.update()
 
 
 #set size of the screen

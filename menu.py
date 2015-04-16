@@ -85,18 +85,17 @@ def button(number):
         sys.exit()
 
     if number == 1:
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(('google.com', 0))
-        ip_address = get_ip()
+        time.sleep(5) #do something interesting here
+        #sys.exit()
 
 
     if number == 2:
-        run_cmd("startx")
         time.sleep(5) #do something interesting here
-        sys.exit()
+        #sys.exit()
+
 
     if number == 3:
-        time.sleep(5) #do something interesting here
+        run_cmd("startx")
         sys.exit()
 
     if number == 4:
@@ -150,13 +149,13 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 # First Row
 #make_button("Menu Item 1", 40, 40, 50, 200, cyan)
 #make_button("Menu Item 2", 260, 40, 50, 200, cyan)
-make_button("   Garth's Simple Pi Interface", 40, 40, 50, 420, cyan)
+make_button("  Garth's Simple Pi Interface ", 40, 40, 50, 420, cyan)
 # Second Row
-make_button("   Desktop  ", 40, 110, 50, 200, cyan)
+make_button("    Desktop ", 40, 110, 50, 200, cyan)
 make_button(" Menu item 4", 260, 110, 50, 200, cyan)
 # Third Row
 make_button(" Menu item 5", 40, 180, 50, 200, cyan)
-make_button("  Shutdown  ", 260, 180, 50, 200, cyan)
+make_button("   Shutdown ", 260, 180, 50, 200, cyan)
 # Fourth Row
 #make_button("Menu item 7", 40, 250, 50, 200, cyan)
 #make_button("Menu item 8", 260, 250, 50, 200, cyan)

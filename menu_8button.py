@@ -1,4 +1,4 @@
-import sys, pygame, socket
+import sys, pygame
 from pygame.locals import *
 import time
 import subprocess
@@ -67,12 +67,7 @@ def button(number):
         sys.exit()
 
     if number == 5:
-        screen.fill(black)
-        font=pygame.font.Font(None,36)
-        label=font.render("Good Bye!", 1, (white))
-        screen.blit(label,(105,120))
-        pygame.display.flip()
-        time.sleep(5)
+        time.sleep(5) #do something interesting here
         sys.exit()
 
     if number == 6:
@@ -84,8 +79,8 @@ def button(number):
         sys.exit()
 
     if number == 8:
+        time.sleep(5) #do something interesting here
         sys.exit()
-        shutdown()
 
 #colors     R    G    B
 white   = (255, 255, 255)
@@ -124,7 +119,7 @@ make_button("Menu item 6", 260, 180, 55, 210, blue)
 make_button("Menu item 7", 30, 255, 55, 210, blue)
 make_button("Menu item 8", 260, 255, 55, 210, blue)
 
-#While loop to manage touch screen inputs
+# While loop to manage touch screen inputs
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:

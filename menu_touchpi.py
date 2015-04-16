@@ -16,6 +16,12 @@ def make_button(text, xpo, ypo, height, width, colour):
     screen.blit(label,(xpo,ypo))
     pygame.draw.rect(screen, blue, (xpo-10,ypo-10,width,height),5)
 
+# define function for printing text in a specific place with a specific width and height and with a specific colour and adding a border
+def make_label(text, xpo, ypo, fontsize, colour):
+    font=pygame.font.Font(None,fontsize)
+    label=font.render(str(text), 1, (colour))
+    screen.blit(label,(xpo,ypo))
+
 # define function that checks for touch location
 def on_touch():
     touch_pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
@@ -102,7 +108,7 @@ def button(number):
         shutdown()
         sys.exit()
 
-#colors     R    G    B
+# colors    R    G    B
 white   = (255, 255, 255)
 red     = (255,   0,   0)
 green   = (  0, 255,   0)
@@ -127,7 +133,7 @@ pygame.draw.rect(screen, blue, (0,0,480,320),10)
 
 # Buttons and labels
 # First Row Label
-make_button("     Garth's Touch Pi Interface", 30, 30, 55, 440, blue)
+make_label("     Garth's Touch Pi Interface", 30, 30, 72, blue)
 # Second Row buttons 3 and 4
 make_button("     Desktop", 30, 105, 55, 210, blue)
 make_button("    Terminal", 260, 105, 55, 210, blue)

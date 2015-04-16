@@ -61,11 +61,10 @@ def run_cmd(cmd):
         return output
 
 def shutdown():
-    command = "/usr/bin/sudo /sbin/shutdown -h now"
-    import subprocess
-    process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
-    output = process.communicate()[0]
-    print output
+        command = "/usr/bin/sudo /sbin/shutdown -h now"
+        process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+        output = process.communicate()[0]
+        return output
 
 #define action on pressing buttons
 def button(number):

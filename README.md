@@ -1,7 +1,20 @@
 ## Work in progress
 
-Working to create a simple menu for Raspberry Pi projects using the 3.5" Adafruit PiTFT 480x320 screen.
+Simple touch menu for Raspberry Pi projects using the [3.5" Adafruit PiTFT](http://www.adafruit.com/products/2097) 480x320 touch screen.
 
+Runs as a python script in the framebuffer without a desktop environment.
+
+I have made a model b+ [Touch Pi](https://learn.adafruit.com/touch-pi-portable-raspberry-pi) 3D printed case for my screen and raspberry pi, and with a battery and [PowerBoost 500c](https://www.adafruit.com/product/1944) charger it makes a great base for raspberry pi projects.
+
+Written using python and pygame the 3.5" screen is broken out into 8  menu items.
+
+### Installation
+
+
+
+    git clone https://github.com/garthvh/pitftmenu
+    cd pitftmenu
+    sudo python menu_8button.py
 
 ### References
 

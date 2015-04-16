@@ -1,4 +1,4 @@
-import sys, pygame, socket
+import sys, pygame, socket, os
 from pygame.locals import *
 import time
 import subprocess
@@ -77,7 +77,7 @@ def button(number):
     print "You pressed button ",number
 
     if number == 3:
-        time.sleep(5) #do something interesting here
+        os.system("startx")
         sys.exit()
 
     if number == 4:
@@ -128,13 +128,13 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 #make_button("Menu Item 1", 40, 40, 50, 200, cyan)
 #make_button("Menu Item 2", 260, 40, 50, 200, cyan)
 make_button("  Garth's Simple Pi Interface ", 40, 40, 50, 420, cyan)
-# Second Row
+# Second Row buttons 3 and 4
 make_button("    Desktop ", 40, 110, 50, 200, cyan)
 make_button(" Menu item 4", 260, 110, 50, 200, cyan)
-# Third Row
+# Third Row buttons 5 and 6
 make_button("    Exit    ", 40, 180, 50, 200, cyan)
 make_button("   Shutdown ", 260, 180, 50, 200, cyan)
-# Fourth Row
+# Fourth Row buttons 7 and 8
 #make_button("Menu item 7", 40, 250, 50, 200, cyan)
 #make_button("Menu item 8", 260, 250, 50, 200, cyan)
 make_button("    Current IP: " +  get_ip(), 40, 250, 50, 420, cyan)

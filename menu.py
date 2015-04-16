@@ -16,43 +16,23 @@ def make_button(text, xpo, ypo, height, width, colour):
     screen.blit(label,(xpo,ypo))
     pygame.draw.rect(screen, cyan, (xpo-10,ypo-10,width,height),3)
 
-#define function that checks for mouse location
-def on_click():
-    click_pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
-    # click_pos[0] = x
-    # click_pos[1] = y
-    #now check to see if button 1 was pressed
-    if 40 <= click_pos[0] <= 240 and 40 <= click_pos[1] <=90:
-            print "You pressed button 1 in column 1"
-            button(1)
-    #now check to see if button 2 was pressed
-    if 260 <= click_pos[0] <= 460 and 40 <= click_pos[1] <=90:
-            print "You pressed button 1 in column 2"
-            button(2)
-    #now check to see if button 3 was pressed
-    if 40 <= click_pos[0] <= 240 and 100 <= click_pos[1] <=150:
-            print "You pressed button 2 in column 1"
+# define function that checks for touch location
+def on_touch():
+    touch_pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
+
+    #  x_min                 x_max   y_min                y_max
+    # button 3 event
+    if 30 <= touch_pos[0] <= 240 and 105 <= touch_pos[1] <=160:
             button(3)
-    #now check to see if button 4 was pressed
-    if 260 <= click_pos[0] <= 460 and 100 <= click_pos[1] <=150:
-            print "You pressed button 2 in column 2"
+    # button 4 event
+    if 260 <= touch_pos[0] <= 470 and 105 <= touch_pos[1] <=160:
             button(4)
-    #now check to see if button 5 was pressed
-    if 40 <= click_pos[0] <= 240 and 160 <= click_pos[1] <=210:
-            print "You pressed button 3 in column 1"
+    # button 5 event
+    if 30 <= touch_pos[0] <= 240 and 180 <= touch_pos[1] <=235:
             button(5)
-    #now check to see if button 6 was pressed
-    if 260 <= click_pos[0] <= 460 and 160 <= click_pos[1] <=210:
-            print "You pressed button 3 in column 2"
+    # button 6 event
+    if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
             button(6)
-    #now check to see if button 7 was pressed
-    if 40 <= click_pos[0] <= 240 and 240 <= click_pos[1] <=290:
-            print "You pressed button 4 in column 1"
-            button(7)
-    #now check to see if button 8 was pressed
-    if 260 <= click_pos[0] <= 460 and 240 <= click_pos[1] <=290:
-            print "You pressed the button 4 in column 2"
-            button(8)
 
 # Get Your External IP Address
 def get_ip():
@@ -140,7 +120,6 @@ cyan    = ( 50, 255, 255)
 magenta = (255,   0, 255)
 yellow  = (255, 255,   0)
 orange  = (255, 127,   0)
-cream   = (254, 255, 250)
 
 screen = pygame.display.set_mode(size)
 
@@ -149,12 +128,10 @@ screen.fill(black) #change the colours if needed
 pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 
 #Add buttons and labels
-# First Row
-#make_button("Menu Item 1", 40, 40, 50, 200, cyan)
-#make_button("Menu Item 2", 260, 40, 50, 200, cyan)
-make_button("  Garth's Simple Pi Interface ", 40, 40, 50, 420, cyan)
+# First Row Label
+make_button("  Garth's Simple Pi Interface ", 30, 30, 55, 440, cyan)
 # Second Row buttons 3 and 4
-make_button(" Desktop ", 40, 110, 50, 200, cyan)
+make_button(" Desktop ", 30, 110, 50, 200, cyan)
 make_button("     Exit", 260, 110, 50, 200, cyan)
 # Third Row buttons 5 and 6
 make_button("    Reboot    ", 40, 180, 50, 200, cyan)
@@ -172,7 +149,7 @@ while 1:
             pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
             print pos #for checking
             pygame.draw.circle(screen, white, pos, 2, 0) #for debugging purposes - adds a small dot where the screen is pressed
-            on_click()
+            on_touch()
 
 #ensure there is always a safe way to end the program if the touch screen fails
 

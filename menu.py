@@ -41,12 +41,6 @@ def get_ip():
     s.connect(('<broadcast>', 0))
     return s.getsockname()[0]
 
-#run Commands
-def run_cmd(cmd):
-    p = Popen(cmd, shell=True, stdout=PIPE)
-    output = p.communicate()[0]
-    return output
-
 def restart():
     command = "/usr/bin/sudo /sbin/shutdown -r now"
     process = Popen(command.split(), stdout=PIPE)
@@ -74,7 +68,6 @@ def button(number):
         subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
         sys.exit()
 
-
     if number == 4:
         # exit
         sys.exit()
@@ -99,7 +92,6 @@ def button(number):
         shutdown()
         pygame.quit()
         sys.exit()
-        pygame.display.update()
 
 
 #set size of the screen
@@ -126,14 +118,12 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 # First Row Label
 make_button("  Garth's Simple Pi Interface ", 30, 30, 55, 440, cyan)
 # Second Row buttons 3 and 4
-make_button(" Desktop ", 30, 110, 50, 200, cyan)
-make_button("     Exit", 260, 110, 50, 200, cyan)
+make_button(" Desktop ", 30, 105, 55, 210, cyan)
+make_button("     Exit", 260, 105, 55, 210, cyan)
 # Third Row buttons 5 and 6
 make_button("    Reboot    ", 40, 180, 50, 200, cyan)
 make_button("   Shutdown ", 260, 180, 50, 200, cyan)
-# Fourth Row buttons 7 and 8
-#make_button("Menu item 7", 40, 250, 50, 200, cyan)
-#make_button("Menu item 8", 260, 250, 50, 200, cyan)
+# Fourth Row Label
 make_button("    Current IP: " +  get_ip(), 40, 250, 50, 420, cyan)
 
 #While loop to manage touch screen inputs

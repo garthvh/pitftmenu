@@ -76,7 +76,9 @@ def button(number):
         screen.fill(black)
         font=pygame.font.Font(None,36)
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        label=font.render(s.connect(('google.com', 0)), 1, (white))
+        ip_address = s.connect(('google.com', 0))
+        print ip_address
+        label=font.render(ip_address, 1, (white))
         screen.blit(label,(105,120))
         pygame.display.flip()
 

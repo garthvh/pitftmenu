@@ -93,7 +93,6 @@ def button(number):
         pygame.quit()
         sys.exit()
 
-
 #set size of the screen
 size = width, height = 480, 320
 
@@ -110,21 +109,26 @@ orange  = (255, 127,   0)
 
 screen = pygame.display.set_mode(size)
 
-#set up the fixed items on the menu
-screen.fill(black) #change the colours if needed
-pygame.draw.rect(screen, cyan, (0,0,480,320),10)
+"""
+Set up the base menu you can customize your menu with the colors above
+"""
+# Background Color
+screen.fill(black)
+
+# Outer Border
+pygame.draw.rect(screen, blue, (0,0,480,320),10)
 
 #Add buttons and labels
 # First Row Label
-make_button("   Garth's Simple Pi Interface", 30, 30, 55, 440, cyan)
+make_button("Garth's Simple Touch Pi Interface", 30, 30, 55, 440, blue)
 # Second Row buttons 3 and 4
-make_button("    Desktop", 30, 105, 55, 210, cyan)
-make_button("       Exit", 260, 105, 55, 210, cyan)
+make_button("     Desktop", 30, 105, 55, 210, blue)
+make_button("       Exit", 260, 105, 55, 210, blue)
 # Third Row buttons 5 and 6
-make_button("     Reboot", 40, 180, 50, 200, cyan)
-make_button("   Shutdown", 260, 180, 50, 200, cyan)
+make_button("     Reboot", 30, 180, 55, 210, blue)
+make_button("   Shutdown", 260, 180, 55, 210, blue)
 # Fourth Row Label
-make_button("    Current IP: " +  get_ip(), 40, 250, 50, 420, cyan)
+make_button("    Current IP: " +  get_ip(), 30, 260, 54, 440, blue)
 
 #While loop to manage touch screen inputs
 while 1:

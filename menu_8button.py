@@ -16,53 +16,35 @@ def make_button(text, xpo, ypo, height, width, colour):
     screen.blit(label,(xpo,ypo))
     pygame.draw.rect(screen, blue, (xpo-10,ypo-10,width,height),3)
 
-# define function that checks for mouse location
-# click_pos[0] = x click_pos[1] = y
-def on_click():
-    click_pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
+# define function that checks for touch location
+def on_touch():
+    touch_pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
 
+    #  x_min                 x_max   y_min                y_max
     # button 1 event
-    if 30 <= click_pos[0] <= 240 and 30 <= click_pos[1] <=85:
+    if 30 <= touch_pos[0] <= 240 and 30 <= touch_pos[1] <=85:
             button(1)
     # button 2 event
-    if 260 <= click_pos[0] <= 470 and 30 <= click_pos[1] <=85:
+    if 260 <= touch_pos[0] <= 470 and 30 <= touch_pos[1] <=85:
             button(2)
     # button 3 event
-    if 30 <= click_pos[0] <= 240 and 105 <= click_pos[1] <=160:
+    if 30 <= touch_pos[0] <= 240 and 105 <= touch_pos[1] <=160:
             button(3)
     # button 4 event
-    if 260 <= click_pos[0] <= 470 and 105 <= click_pos[1] <=160:
+    if 260 <= touch_pos[0] <= 470 and 105 <= touch_pos[1] <=160:
             button(4)
     # button 5 event
-    if 30 <= click_pos[0] <= 240 and 180 <= click_pos[1] <=235:
+    if 30 <= touch_pos[0] <= 240 and 180 <= touch_pos[1] <=235:
             button(5)
     # button 6 event
-    if 260 <= click_pos[0] <= 470 and 180 <= click_pos[1] <=235:
+    if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
             button(6)
-    #now check to see if button 7 was pressed
-    if 30 <= click_pos[0] <= 240 and 255 <= click_pos[1] <=310:
+    # button 7 event
+    if 30 <= touch_pos[0] <= 240 and 255 <= touch_pos[1] <=310:
             button(7)
-    #now check to see if button 8 was pressed
-    if 260 <= click_pos[0] <= 470 and 255 <= click_pos[1] <=310:
+    # button 8 event
+    if 260 <= touch_pos[0] <= 470 and 255 <= touch_pos[1] <=310:
             button(8)
-
-def get_ip():
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    s.connect(('<broadcast>', 0))
-    return s.getsockname()[0]
-
-#run Commands
-def run_cmd(cmd):
-    p = Popen(cmd, shell=True, stdout=PIPE)
-    output = p.communicate()[0]
-    return output
-
-def shutdown():
-    command = "/usr/bin/sudo /sbin/shutdown -h now"
-    process = Popen(command.split(), stdout=PIPE)
-    output = process.communicate()[0]
-    return output
 
 #define action on pressing buttons
 def button(number):
@@ -105,9 +87,6 @@ def button(number):
         sys.exit()
         shutdown()
 
-#set size of the screen
-size = width, height = 480, 320
-
 #colors     R    G    B
 white   = (255, 255, 255)
 red     = (255,   0,   0)
@@ -119,10 +98,12 @@ magenta = (255,   0, 255)
 yellow  = (255, 255,   0)
 orange  = (255, 127,   0)
 
+# Set up the base menu you can customize your menu with the colors above
+
+#set size of the screen
+size = width, height = 480, 320
 screen = pygame.display.set_mode(size)
-"""
-Set up the base menu you can customize your menu with the colors above
-"""
+
 # Background Color
 screen.fill(black)
 

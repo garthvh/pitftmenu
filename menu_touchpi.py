@@ -9,7 +9,7 @@ os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"
 pygame.init()
 
-#define function for printing text in a specific place and with a specific colour and adding a border
+# define function for printing text in a specific place with a specific width and height and with a specific colour and adding a border
 def make_button(text, xpo, ypo, height, width, colour):
     font=pygame.font.Font(None,42)
     label=font.render(str(text), 1, (colour))
@@ -102,9 +102,6 @@ def button(number):
         shutdown()
         sys.exit()
 
-#set size of the screen
-size = width, height = 480, 320
-
 #colors     R    G    B
 white   = (255, 255, 255)
 red     = (255,   0,   0)
@@ -116,20 +113,21 @@ magenta = (255,   0, 255)
 yellow  = (255, 255,   0)
 orange  = (255, 127,   0)
 
+# Set up the base menu you can customize your menu with the colors above
+
+#set size of the screen
+size = width, height = 480, 320
 screen = pygame.display.set_mode(size)
 
-"""
-Set up the base menu you can customize your menu with the colors above
-"""
 # Background Color
 screen.fill(black)
 
 # Outer Border
 pygame.draw.rect(screen, blue, (0,0,480,320),10)
 
-#Add buttons and labels
+# Buttons and labels
 # First Row Label
-make_button("    Garth's Touch Pi Interface", 30, 30, 55, 440, blue)
+make_button("     Garth's Touch Pi Interface", 30, 30, 55, 440, blue)
 # Second Row buttons 3 and 4
 make_button("     Desktop", 30, 105, 55, 210, blue)
 make_button("    Terminal", 260, 105, 55, 210, blue)

@@ -78,8 +78,7 @@ def button(number):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         label=font.render(s.connect(('google.com', 0)), 1, (white))
         screen.blit(label,(105,120))
-        time.sleep(5) #do something interesting here
-        sys.exit()
+        pygame.display.flip()
 
     if number == 2:
         time.sleep(5) #do something interesting here

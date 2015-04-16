@@ -97,10 +97,8 @@ def button(number):
         screen.blit(label,(50,120))
         pygame.display.flip()
         pygame.quit()
-        desktop()
-        pygame.quit()
         sys.exit()
-        pygame.display.update()
+        desktop()
 
     if number == 4:
         # exit

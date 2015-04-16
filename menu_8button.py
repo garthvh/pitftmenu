@@ -23,7 +23,7 @@ def on_click():
     # click_pos[1] = y
 
     # button 1 event
-    if 40 <= click_pos[0] <= 240 and 40 <= click_pos[1] <=90:
+    if 30 <= click_pos[0] <= 240 and 30 <= click_pos[1] <=80:
             print "You pressed button 1 in column 1"
             button(1)
     # button 2 event
@@ -142,7 +142,7 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 
 #Add buttons and labels
 # First Row
-make_button("Menu Item 1", 40, 40, 50, 200, cyan)
+make_button("Menu Item 1", 30, 30, 52, 200, cyan)
 make_button("Menu Item 2", 260, 40, 50, 200, cyan)
 # Second Row
 make_button("Menu Item 3", 40, 110, 50, 200, cyan)

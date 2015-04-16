@@ -10,16 +10,18 @@ Written using python and pygame the 3.5" screen is broken out into 8  menu items
 
 ### Installation
 
-
-
     git clone https://github.com/garthvh/pitftmenu
     cd pitftmenu
+
+The basic 8 Button Template can be run with the following command:
+
     sudo python menu_8button.py
 
 ### References
 
 The examples here are cobbled from other code below:
 
+- https://github.com/DoctorBud/raspberrypi-node/tree/176f7536d505de17b0d790855a836e0d2cb7d059/pitft-pygame
 - https://learn.adafruit.com/pi-video-output-using-pygame/pygame-drawing-functions
 - https://learn.adafruit.com/pi-video-output-using-pygame/pointing-pygame-to-the-framebuffer
 - http://home.uktechreviews.com/Raspberry/Pi%20blog/files/pygame-menu.html

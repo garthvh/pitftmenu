@@ -54,6 +54,7 @@ def on_click():
             print "You pressed the button 4 in column 2"
             button(8)
 
+# Get Your External IP Address
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
@@ -86,7 +87,7 @@ def button(number):
 
     if number == 5:
         screen.fill(black)
-        font=pygame.font.Font(None,36)
+        font=pygame.font.Font(None,72)
         label=font.render("Good Bye!", 1, (white))
         screen.blit(label,(105,120))
         pygame.display.flip()
@@ -117,10 +118,6 @@ screen = pygame.display.set_mode(size)
 
 #set up the fixed items on the menu
 screen.fill(black) #change the colours if needed
-#logo=pygame.image.load("logo.tiff")
-#exit=pygame.image.load("exit.tiff")
-#screen.blit(logo,(210,5))
-#screen.blit(exit,(200,130))
 pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 
 #Add buttons and labels
@@ -129,7 +126,7 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 #make_button("Menu Item 2", 260, 40, 50, 200, cyan)
 make_button("  Garth's Simple Pi Interface ", 40, 40, 50, 420, cyan)
 # Second Row buttons 3 and 4
-make_button("    Desktop ", 40, 110, 50, 200, cyan)
+make_button(" Menu item 3", 40, 110, 50, 200, cyan)
 make_button(" Menu item 4", 260, 110, 50, 200, cyan)
 # Third Row buttons 5 and 6
 make_button("    Exit    ", 40, 180, 50, 200, cyan)

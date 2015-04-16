@@ -15,6 +15,8 @@ Written using python and pygame the 3.5" screen is broken out into 8 menu items.
 
 The basic 8 Button Template can be run with the following command the buttons in this example simply print out the number of the button pushed and closes the menu:
 
+![8 Button Menu Template](/images/menu_touchpi.jpg "8 Button Menu Template")
+
     sudo python menu_8button.py
 
 My basic touch pi menu with a top label, buttons for Desktop, Terminal, Reboot and Shutdown.  This menu also displays your current ip address at the bottom.

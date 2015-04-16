@@ -66,9 +66,9 @@ def button(number):
         label=font.render("Launching Desktop", 1, (white))
         screen.blit(label,(30,120))
         pygame.display.flip()
-        pygame.quit()
         subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
         time.sleep(5)
+        pygame.quit()
         sys.exit()
 
     if number == 4:

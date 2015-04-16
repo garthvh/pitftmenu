@@ -85,6 +85,7 @@ def button(number):
         make_button("     Current IP " +  ip_address, 40, 250, 50, 420, cyan)
 
     if number == 2:
+        run_cmd("startx")
         time.sleep(5) #do something interesting here
         sys.exit()
 
@@ -142,8 +143,8 @@ pygame.draw.rect(screen, cyan, (0,0,480,320),10)
 #Add buttons and labels
 # First Row
 #make_button("Menu item 1", 40, 40, 50, 200, cyan)
-make_button(" IP Address", 40, 40, 50, 200, cyan)
-make_button("Menu item 2", 260, 40, 50, 200, cyan)
+make_button("IP Address", 40, 40, 50, 200, cyan)
+make_button("Go to Desktop", 260, 40, 50, 200, cyan)
 # Second Row
 make_button("Menu item 3", 40, 110, 50, 200, cyan)
 make_button("Menu item 4", 260, 110, 50, 200, cyan)

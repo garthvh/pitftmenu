@@ -17,7 +17,18 @@ The basic 8 Button Template can be run with the following command:
 
     sudo python menu_8button.py
 
+My base project template can be run with
 
+    sudo python menu.py
+
+If you want to enable the shutdown command you will need to make the following updates
+
+    sudo visudo
+
+Add the following lines to the end of the file to target the www-data user
+
+    www-data ALL=/sbin/shutdown
+    www-data ALL=NOPASSWD: /sbin/shutdown
 
 ### References
 

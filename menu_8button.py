@@ -9,50 +9,41 @@ os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"
 pygame.init()
 
-#define function for printing text in a specific place and with a specific colour and adding a border
+# define function for printing text in a specific place with a specific width and height and with a specific colour and adding a border
 def make_button(text, xpo, ypo, height, width, colour):
     font=pygame.font.Font(None,42)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
     pygame.draw.rect(screen, blue, (xpo-10,ypo-10,width,height),3)
 
-#define function that checks for mouse location
+# define function that checks for mouse location
+# click_pos[0] = x click_pos[1] = y
 def on_click():
     click_pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
-    # click_pos[0] = x
-    # click_pos[1] = y
 
     # button 1 event
-    if 30 <= click_pos[0] <= 240 and 30 <= click_pos[1] <=80:
-            print "You pressed button 1 in column 1"
+    if 30 <= click_pos[0] <= 240 and 30 <= click_pos[1] <=85:
             button(1)
     # button 2 event
-    if 260 <= click_pos[0] <= 460 and 40 <= click_pos[1] <=90:
-            print "You pressed button 1 in column 2"
+    if 260 <= click_pos[0] <= 470 and 30 <= click_pos[1] <=85:
             button(2)
     # button 3 event
-    if 40 <= click_pos[0] <= 240 and 100 <= click_pos[1] <=150:
-            print "You pressed button 2 in column 1 (button 3)"
+    if 30 <= click_pos[0] <= 240 and 105 <= click_pos[1] <=160:
             button(3)
     # button 4 event
-    if 260 <= click_pos[0] <= 460 and 100 <= click_pos[1] <=150:
-            print "You pressed button 2 in column 2"
+    if 260 <= click_pos[0] <= 470 and 105 <= click_pos[1] <=160:
             button(4)
     # button 5 event
-    if 40 <= click_pos[0] <= 240 and 160 <= click_pos[1] <=210:
-            print "You pressed button 3 in column 1"
+    if 30 <= click_pos[0] <= 240 and 180 <= click_pos[1] <=235:
             button(5)
     # button 6 event
-    if 260 <= click_pos[0] <= 460 and 160 <= click_pos[1] <=210:
-            print "You pressed button 3 in column 2"
+    if 260 <= click_pos[0] <= 470 and 180 <= click_pos[1] <=235:
             button(6)
     #now check to see if button 7 was pressed
-    if 40 <= click_pos[0] <= 240 and 240 <= click_pos[1] <=290:
-            print "You pressed button 4 in column 1"
+    if 30 <= click_pos[0] <= 240 and 255 <= click_pos[1] <=310:
             button(7)
     #now check to see if button 8 was pressed
-    if 260 <= click_pos[0] <= 460 and 240 <= click_pos[1] <=290:
-            print "You pressed the button 4 in column 2"
+    if 260 <= click_pos[0] <= 470 and 255 <= click_pos[1] <=310:
             button(8)
 
 def get_ip():
@@ -111,9 +102,8 @@ def button(number):
         sys.exit()
 
     if number == 8:
-        time.sleep(5) #do something interesting here
+        shutdown()
         sys.exit()
-
 
 #set size of the screen
 size = width, height = 480, 320
@@ -128,7 +118,6 @@ cyan    = ( 50, 255, 255)
 magenta = (255,   0, 255)
 yellow  = (255, 255,   0)
 orange  = (255, 127,   0)
-cream   = (254, 255, 250)
 
 screen = pygame.display.set_mode(size)
 """

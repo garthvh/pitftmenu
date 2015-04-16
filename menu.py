@@ -1,4 +1,4 @@
-import sys, pygame, socket, os
+import sys, pygame, socket
 from pygame.locals import *
 import time
 import subprocess

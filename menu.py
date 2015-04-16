@@ -62,15 +62,15 @@ def get_ip():
 
 #run Commands
 def run_cmd(cmd):
-        p = Popen(cmd, shell=True, stdout=PIPE)
-        output = p.communicate()[0]
-        return output
+    p = Popen(cmd, shell=True, stdout=PIPE)
+    output = p.communicate()[0]
+    return output
 
 def shutdown():
-        command = "/usr/bin/sudo /sbin/shutdown -h now"
-        process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
-        output = process.communicate()[0]
-        return output
+    command = "/usr/bin/sudo /sbin/shutdown -h now"
+    process = Popen(command.split(), stdout=PIPE)
+    output = process.communicate()[0]
+    return output
 
 #define action on pressing buttons
 def button(number):
@@ -85,17 +85,16 @@ def button(number):
         sys.exit()
 
     if number == 1:
-        time.sleep(5) #do something interesting here
+        #time.sleep(5) #do something interesting here
         #sys.exit()
-
 
     if number == 2:
-        time.sleep(5) #do something interesting here
+        #time.sleep(5) #do something interesting here
         #sys.exit()
-
 
     if number == 3:
         run_cmd("startx")
+        time.sleep(5)
         sys.exit()
 
     if number == 4:
@@ -108,7 +107,6 @@ def button(number):
 
     if number == 6:
         shutdown()
-        time.sleep(5) #do something interesting here
         sys.exit()
 
     if number == 7:

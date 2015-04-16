@@ -102,8 +102,8 @@ def button(number):
         sys.exit()
 
     if number == 8:
-        shutdown()
         sys.exit()
+        shutdown()
 
 #set size of the screen
 size = width, height = 480, 320

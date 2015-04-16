@@ -14,7 +14,7 @@ def run_cmd(cmd):
 while 1:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(('google.com', 0))
-        s.getsockname()[0]
-        print ('IP %s' % ( s ))
+        ip_address = s.getsockname()[0]
+        print ('IP %s' % ( ip_address ))
         sleep(10)
         #run_cmd(cmd)

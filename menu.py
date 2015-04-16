@@ -54,6 +54,12 @@ def on_click():
             print "You pressed the button 4 in column 2"
             button(8)
 
+def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    s.connect(('<broadcast>', 0))
+    return s.getsockname()[0]
+
 #run Commands
 def run_cmd(cmd):
         p = Popen(cmd, shell=True, stdout=PIPE)
@@ -81,7 +87,7 @@ def button(number):
     if number == 1:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(('google.com', 0))
-        ip_address = s.getsockname()[0]
+        ip_address = get_ip()
         make_button("     Current IP " +  ip_address, 40, 250, 50, 420, cyan)
 
     if number == 2:

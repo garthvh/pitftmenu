@@ -63,11 +63,12 @@ def button(number):
         # desktop
         screen.fill(black)
         font=pygame.font.Font(None,72)
-        label=font.render("Launching Desktop. .", 1, (white))
+        label=font.render("Launching Desktop", 1, (white))
         screen.blit(label,(30,120))
         pygame.display.flip()
         pygame.quit()
         subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
+        time.sleep(5)
         sys.exit()
 
     if number == 4:
@@ -75,9 +76,10 @@ def button(number):
         screen.fill(black)
         font=pygame.font.Font(None,72)
         label=font.render("Exiting to Terminal", 1, (white))
-        screen.blit(label,(20,120))
+        screen.blit(label,(10,120))
         pygame.display.flip()
         pygame.quit()
+        time.sleep(3)
         sys.exit()
 
     if number == 5:
@@ -89,6 +91,7 @@ def button(number):
         pygame.display.flip()
         pygame.quit()
         restart()
+        time.sleep(3)
         sys.exit()
 
     if number == 6:
@@ -100,6 +103,7 @@ def button(number):
         pygame.display.flip()
         pygame.quit()
         shutdown()
+        time.sleep(3)
         sys.exit()
 
 #colors     R    G    B

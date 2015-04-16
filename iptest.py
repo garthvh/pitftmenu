@@ -11,10 +11,10 @@ def run_cmd(cmd):
         output = p.communicate()[0]
         return output
 
-while 1:        
-        ipaddr = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+while 1:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(('google.com', 0))
         s.getsockname()[0]
-        print ('IP %s' % ( ipaddr ))
+        print ('IP %s' % ( s ))
         sleep(10)
         #run_cmd(cmd)

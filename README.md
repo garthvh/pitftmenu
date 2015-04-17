@@ -19,7 +19,7 @@ Written using python and pygame the 3.5" screen is broken out into 8 large touch
 
 The basic 8 Button Template can be run with the following command the buttons in this example simply print out the number of the button pushed and closes the menu:
 
-![8 Button Menu Template](/images/menu_8button.jpg "8 Button Menu Template")
+![8 Button Menu Template](http://garthvh.com/assets/img/touchpi/menu_8button.jpg "8 Button Menu Template")
 
     sudo python menu_8button.py
 

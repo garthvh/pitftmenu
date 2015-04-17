@@ -151,8 +151,8 @@ make_button("      Reboot", 30, 180, 55, 210, blue)
 make_button("    Shutdown", 260, 180, 55, 210, blue)
 # Fourth Row Label
 #make_label("Current IP: " +  get_ip(), 20, 255, 48, blue)
-make_label("IP:" +  get_ip(), 40, 255, 42, blue)
-make_button("WiFi", 390, 255, 55, 80, blue)
+make_label("IP:" +  get_ip(), 20, 255, 42, blue)
+make_button("WiFi Settings", 260, 255, 55, 210, blue)
 
 
 

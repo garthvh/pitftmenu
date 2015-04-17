@@ -42,6 +42,9 @@ def on_touch():
     # button 6 event
     if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
             button(6)
+    # button 8 event
+    if 260 <= touch_pos[0] <= 470 and 255 <= touch_pos[1] <=310:
+            button(8)
 
 # Get Your External IP Address
 def get_ip():
@@ -151,7 +154,7 @@ make_button("      Reboot", 30, 180, 55, 210, blue)
 make_button("    Shutdown", 260, 180, 55, 210, blue)
 # Fourth Row Label
 #make_label("Current IP: " +  get_ip(), 20, 255, 48, blue)
-make_label("IP:" +  get_ip(), 20, 255, 42, blue)
+make_label("IP:" +  get_ip(), 10, 255, 42, blue)
 make_button("WiFi Settings", 260, 255, 55, 210, blue)
 
 

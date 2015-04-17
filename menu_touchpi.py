@@ -64,6 +64,12 @@ def shutdown():
     output = process.communicate()[0]
     return output
 
+def get_temp():
+    command = "vcgencmd measure_temp"
+    process = Popen(command.split(), stdout=PIPE)
+    output = process.communicate()[0]
+    return output
+
 # Define each button press action
 def button(number):
     print "You pressed button ",number
@@ -144,7 +150,7 @@ make_button("    Terminal", 260, 105, 55, 210, blue)
 make_button("      Reboot", 30, 180, 55, 210, blue)
 make_button("    Shutdown", 260, 180, 55, 210, blue)
 # Fourth Row Label
-make_label("Current IP: " +  get_ip(), 45, 255, 48, blue)
+make_label(get_temp().upper() + " IP:" +  get_ip(), 45, 255, 48, blue)
 
 #While loop to manage touch screen inputs
 while 1:

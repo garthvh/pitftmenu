@@ -150,7 +150,7 @@ make_button("    Terminal", 260, 105, 55, 210, blue)
 make_button("      Reboot", 30, 180, 55, 210, blue)
 make_button("    Shutdown", 260, 180, 55, 210, blue)
 # Fourth Row Label
-make_label(str(get_temp()).upper()[:-1].replace("=", ":") + " IP:" +  get_ip(), 30, 255, 42, blue)
+make_label(str(get_temp()).upper()[:-1].replace("=", ":") + "  IP:" +  get_ip(), 40, 255, 42, blue)
 
 #While loop to manage touch screen inputs
 while 1:

@@ -3,6 +3,7 @@ from pygame.locals import *
 import time
 import subprocess
 import os
+import RPi.GPIO
 from subprocess import *
 os.environ["SDL_FBDEV"] = "/dev/fb1"
 os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
@@ -175,11 +176,14 @@ make_button("     Desktop", 30, 105, 55, 210, blue)
 make_button("    Terminal", 260, 105, 55, 210, blue)
 # Third Row buttons 5 and 6
 make_button("      Reboot", 30, 180, 55, 210, blue)
-make_button("    Shutdown", 260, 180, 55, 210, blue)
+make_button("   Shutdown", 260, 180, 55, 210, blue)
 # Fourth Row Buttons
-make_button("Empty Button", 30, 255, 55, 210, blue)
+make_button(" Empty Button", 30, 255, 55, 210, blue)
 make_button("WiFi Settings", 260, 255, 55, 210, blue)
 
+# LBO Pin from Powerboost
+RPi.GPIO.setmode (RPi.GPIO.BCM)
+RPi.GPIO.setup(21, RPi.GPIO.IN, pull_up_down=RPi.GPIO.PUD_UP)
 
 
 #While loop to manage touch screen inputs
@@ -189,9 +193,19 @@ while 1:
             pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
             on_touch()
 
-#ensure there is always a safe way to end the program if the touch screen fails
-
+        #ensure there is always a safe way to end the program if the touch screen fails
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 sys.exit()
     pygame.display.update()
+
+     if RPi.GPIO.input(21) == RPi.GPIO.LOW:
+         print(“Battery Low”)
+         screen.fill(black)
+         font=pygame.font.Font(None,48)
+         label=font.render("Battery Low, Shutting down", 1, (white))
+         screen.blit(label,(20,120))
+         pygame.display.flip()
+         pygame.quit()
+         #shutdown()
+         sys.exit()

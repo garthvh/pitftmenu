@@ -209,7 +209,7 @@ while 1:
         label=font.render("Battery Low, Shutting down", 1, (white))
         screen.blit(label,(20,120))
         pygame.display.flip()
-        time.sleep(5)
+        time.sleep(10)
         pygame.quit()
         shutdown()
         sys.exit()

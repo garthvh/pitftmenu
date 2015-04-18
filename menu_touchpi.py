@@ -138,7 +138,7 @@ def button(number):
         screen.blit(label,(20,120))
         pygame.display.flip()
         pygame.quit()
-        run_cmd("/usr/bin/sudo python /home/pi/pifi.py/pifi.py")
+        subprocess.call("/usr/bin/sudo python /home/pi/pifi.py/pifi.py")
         sys.exit()
 
 # colors    R    G    B
@@ -167,7 +167,7 @@ pi_hostname = run_cmd("hostname")
 pi_hostname = pi_hostname[:-1]
 # Buttons and labels
 # First Row Label
-make_label(pi_hostname + " " +  get_ip(), 32, 30, 48, blue)
+make_label(pi_hostname + " - " +  get_ip(), 32, 30, 48, blue)
 # Second Row buttons 3 and 4
 make_button("     Desktop", 30, 105, 55, 210, blue)
 make_button("    Terminal", 260, 105, 55, 210, blue)

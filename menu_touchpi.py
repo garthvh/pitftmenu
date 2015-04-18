@@ -137,9 +137,9 @@ def button(number):
         label=font.render("WiFi Settings. .", 1, (white))
         screen.blit(label,(20,120))
         pygame.display.flip()
-        #pygame.quit()
-        subprocess.call("/usr/bin/sudo python /home/pi/pifi.py/pifi.py")
-        #/sys.exit()
+        pygame.quit()
+        subprocess.call("sudo python /home/pi/pifi.py/pifi.py")
+        sys.exit()
 
 # colors    R    G    B
 white   = (255, 255, 255)

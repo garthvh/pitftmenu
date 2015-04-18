@@ -32,26 +32,31 @@ def on_touch():
     #  x_min                 x_max   y_min                y_max
     # button 3 event
     if 30 <= touch_pos[0] <= 240 and 105 <= touch_pos[1] <=160:
-            button(3)
+            button(1)
     # button 4 event
     if 260 <= touch_pos[0] <= 470 and 105 <= touch_pos[1] <=160:
-            button(4)
+            button(2)
     # button 5 event
     if 30 <= touch_pos[0] <= 240 and 180 <= touch_pos[1] <=235:
-            button(5)
+            button(3)
     # button 6 event
     if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
-            button(6)
+            button(4)
     # button 8 event
     if 260 <= touch_pos[0] <= 470 and 255 <= touch_pos[1] <=310:
-            button(8)
+            button(5)
 
 # Get Your External IP Address
 def get_ip():
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    s.connect(('<broadcast>', 0))
-    return s.getsockname()[0]
+    ip_msg = "Not connected"
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+        s.connect(('<broadcast>', 0))
+        ip_msg="IP:" + s.getsockname()[0]
+    except Exception:
+        pass
+    return ip_msg
 
 # Restart Raspberry Pi
 def restart():
@@ -73,11 +78,16 @@ def get_temp():
     output = process.communicate()[0]
     return output
 
+def run_cmd(cmd):
+    process = Popen(cmd.split(), stdout=PIPE)
+    output = process.communicate()[0]
+    return output
+
 # Define each button press action
 def button(number):
     print "You pressed button ",number
 
-    if number == 3:
+    if number == 1:
         # desktop
         screen.fill(black)
         font=pygame.font.Font(None,72)
@@ -85,10 +95,11 @@ def button(number):
         screen.blit(label,(10,120))
         pygame.display.flip()
         pygame.quit()
-        subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
+        #subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
+        run_cmd("FRAMEBUFFER=/dev/fb1 startx")
         sys.exit()
 
-    if number == 4:
+    if number == 2:
         # exit
         screen.fill(black)
         font=pygame.font.Font(None,72)
@@ -98,7 +109,7 @@ def button(number):
         pygame.quit()
         sys.exit()
 
-    if number == 5:
+    if number == 3:
         # reboot
         screen.fill(black)
         font=pygame.font.Font(None,72)
@@ -109,7 +120,7 @@ def button(number):
         restart()
         sys.exit()
 
-    if number == 6:
+    if number == 4:
         # shutdown
         screen.fill(black)
         font=pygame.font.Font(None,72)
@@ -118,6 +129,16 @@ def button(number):
         pygame.display.flip()
         pygame.quit()
         shutdown()
+        sys.exit()
+    if number == 5:
+        # Wifi Settings
+        screen.fill(black)
+        font=pygame.font.Font(None,72)
+        label=font.render("WiFi Settings. .", 1, (white))
+        screen.blit(label,(20,120))
+        pygame.display.flip()
+        pygame.quit()
+        run_cmd("FRAMEBUFFER=/dev/fb1 startx")
         sys.exit()
 
 # colors    R    G    B
@@ -142,10 +163,10 @@ screen.fill(black)
 
 # Outer Border
 pygame.draw.rect(screen, blue, (0,0,480,320),10)
-
+pi_hostname = run_cmd("hostname")
 # Buttons and labels
 # First Row Label
-make_label("Garth's Touch Pi Interface", 32, 30, 48, blue)
+make_label(pi_hostname + " IP:" +  get_ip(), 32, 30, 48, blue)
 # Second Row buttons 3 and 4
 make_button("     Desktop", 30, 105, 55, 210, blue)
 make_button("    Terminal", 260, 105, 55, 210, blue)
@@ -154,7 +175,7 @@ make_button("      Reboot", 30, 180, 55, 210, blue)
 make_button("    Shutdown", 260, 180, 55, 210, blue)
 # Fourth Row Label
 #make_label("Current IP: " +  get_ip(), 20, 255, 48, blue)
-make_label("IP:" +  get_ip(), 10, 255, 42, blue)
+#make_label("IP:" +  get_ip(), 10, 255, 42, blue)
 make_button("WiFi Settings", 260, 255, 55, 210, blue)
 
 

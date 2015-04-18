@@ -1,4 +1,4 @@
-# Simple PiTFT Touch Menu System
+# Simple PiTFT TouchPi Menu System
 
 Simple touch menu for Raspberry Pi projects using the [3.5" Adafruit PiTFT](http://www.adafruit.com/products/2097) 480x320 touch screen.
 

@@ -197,7 +197,7 @@ while 1:
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 sys.exit()
-                pygame.display.update()
+    pygame.display.update()
 
     if RPi.GPIO.input(21) == RPi.GPIO.LOW:
         screen.fill(black)

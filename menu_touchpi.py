@@ -200,7 +200,6 @@ while 1:
     pygame.display.update()
 
     if RPi.GPIO.input(21) == RPi.GPIO.LOW:
-        print(“Battery Low”)
         screen.fill(black)
         font=pygame.font.Font(None,48)
         label=font.render("Battery Low, Shutting down", 1, (white))

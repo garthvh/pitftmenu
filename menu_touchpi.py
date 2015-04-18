@@ -73,7 +73,7 @@ def shutdown():
     return output
 
 def get_temp():
-    command = "vcgencmd measure_temp"p
+    command = "vcgencmd measure_temp"
     process = Popen(command.split(), stdout=PIPE)
     output = process.communicate()[0]
     return output

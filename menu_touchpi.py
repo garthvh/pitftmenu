@@ -113,27 +113,7 @@ def button(number):
         pygame.quit()
         sys.exit()
 
-    if number == 3:
-        # reboot
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("Rebooting. .", 1, (white))
-        screen.blit(label,(40,120))
-        pygame.display.flip()
-        pygame.quit()
-        restart()
-        sys.exit()
     if number == 4:
-        # shutdown
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("Shutting Down. .", 1, (white))
-        screen.blit(label,(20,120))
-        pygame.display.flip()
-        pygame.quit()
-        shutdown()
-        sys.exit()
-    if number == 6:
         # Wifi Settings
         screen.fill(black)
         font=pygame.font.Font(None,72)
@@ -143,6 +123,30 @@ def button(number):
         pygame.quit()
         os.system("sudo python /home/pi/pifi.py/pifi.py --gui")
         sys.exit()
+
+    if number == 5:
+        # reboot
+        screen.fill(black)
+        font=pygame.font.Font(None,72)
+        label=font.render("Rebooting. .", 1, (white))
+        screen.blit(label,(40,120))
+        pygame.display.flip()
+        pygame.quit()
+        restart()
+        sys.exit()
+
+    if number == 6:
+        # shutdown
+        screen.fill(black)
+        font=pygame.font.Font(None,72)
+        label=font.render("Shutting Down. .", 1, (white))
+        screen.blit(label,(20,120))
+        pygame.display.flip()
+        pygame.quit()
+        shutdown()
+        sys.exit()
+
+
 
 # colors    R    G    B
 white   = (255, 255, 255)
@@ -175,11 +179,11 @@ make_label(pi_hostname + " - " +  get_ip(), 32, 30, 48, blue)
 make_button("     Desktop", 30, 105, 55, 210, blue)
 make_button("    Terminal", 260, 105, 55, 210, blue)
 # Third Row buttons 5 and 6
-make_button("      Reboot", 30, 180, 55, 210, blue)
-make_button("   Shutdown", 260, 180, 55, 210, blue)
+make_button(" Empty Button", 30, 180, 55, 210, blue)
+make_button(" WiFi Settings", 260, 180, 55, 210, blue)
 # Fourth Row Buttons
-make_button(" Empty Button", 30, 255, 55, 210, blue)
-make_button(" WiFi Settings", 260, 255, 55, 210, blue)
+make_button("      Reboot", 30, 255, 55, 210, blue)
+make_button("   Shutdown", 260, 255, 55, 210, blue)
 
 # LBO Pin from Powerboost
 RPi.GPIO.setmode (RPi.GPIO.BCM)
@@ -205,6 +209,7 @@ while 1:
         label=font.render("Battery Low, Shutting down", 1, (white))
         screen.blit(label,(20,120))
         pygame.display.flip()
+        time.sleep(5)
         pygame.quit()
-        #shutdown()
+        shutdown()
         sys.exit()

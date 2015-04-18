@@ -25,7 +25,9 @@ The basic 8 Button Template can be run with the following command the buttons in
 
 ### Generic Touch Pi Menu
 
-My basic touch pi menu with a top label, buttons for Desktop, Terminal, Reboot and Shutdown.  This menu also displays your current ip address at the bottom.
+My basic touch pi menu with a top label with your hostname and IP address, one open button and working buttons for Desktop, Terminal, Configuring Wifi, Reboot and Shutdown.
+
+WiFi Functionality Requires PiFi and Virtual Keyboard.
 
 ![Touch Pi Menu](http://garthvh.com/assets/img/touchpi/menu_touchpi.jpg "Touch Pi Menu")
 
@@ -42,6 +44,12 @@ Add the following lines to the end of the file to target the www-data user
 
     www-data ALL=/sbin/shutdown
     www-data ALL=NOPASSWD: /sbin/shutdown
+
+### Automatic low battery shutdown
+
+I have connected the LBO pin on the PowerBoost 500c to GPIO Pin 21, when it returns low the TouchPi shuts down.
+
+![Touch Pi Menu 2](http://garthvh.com/assets/img/touchpi/menu_touchpi_3.jpg "Touch Pi Menu2")
 
 ### Run menu at startup
 

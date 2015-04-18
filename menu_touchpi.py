@@ -95,8 +95,8 @@ def button(number):
         screen.blit(label,(10,120))
         pygame.display.flip()
         pygame.quit()
-        #subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
-        run_cmd("FRAMEBUFFER=/dev/fb1 startx")
+        subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
+        #run_cmd("FRAMEBUFFER=/dev/fb1 startx")
         sys.exit()
 
     if number == 2:

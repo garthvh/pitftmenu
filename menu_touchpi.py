@@ -138,7 +138,7 @@ def button(number):
         screen.blit(label,(20,120))
         pygame.display.flip()
         pygame.quit()
-        run_cmd("/usr/bin/sudo python ~/pify.py/pifi.py")
+        run_cmd("/usr/bin/sudo python /home/pi/pify.py/pifi.py")
         sys.exit()
 
 # colors    R    G    B

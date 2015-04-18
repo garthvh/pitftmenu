@@ -179,7 +179,7 @@ make_button("      Reboot", 30, 180, 55, 210, blue)
 make_button("   Shutdown", 260, 180, 55, 210, blue)
 # Fourth Row Buttons
 make_button(" Empty Button", 30, 255, 55, 210, blue)
-make_button("WiFi Settings", 260, 255, 55, 210, blue)
+make_button(" WiFi Settings", 260, 255, 55, 210, blue)
 
 # LBO Pin from Powerboost
 RPi.GPIO.setmode (RPi.GPIO.BCM)
@@ -197,7 +197,7 @@ while 1:
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 sys.exit()
-    pygame.display.update()
+                pygame.display.update()
 
     if RPi.GPIO.input(21) == RPi.GPIO.LOW:
         screen.fill(black)

@@ -113,6 +113,17 @@ def button(number):
         pygame.quit()
         sys.exit()
 
+    if number == 3:
+        # Pretend Shutdown
+        screen.fill(black)
+        font=pygame.font.Font(None,48)
+        label=font.render("Battery Low, Shutting down", 1, (white))
+        screen.blit(label,(20,120))
+        pygame.display.flip()
+        time.sleep(120)
+        pygame.quit()
+        sys.exit()
+
     if number == 4:
         # Wifi Settings
         screen.fill(black)

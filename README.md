@@ -32,6 +32,7 @@ WiFi Functionality Requires PiFi and Virtual Keyboard.
 ![Touch Pi Menu](http://garthvh.com/assets/img/touchpi/menu_touchpi.jpg "Touch Pi Menu")
 
 ![Touch Pi Menu 2](http://garthvh.com/assets/img/touchpi/menu_touchpi_2.jpg "Touch Pi Menu2")
+
     sudo python menu_touchpi.py
 
 ### Reboot and Shutdown Buttons

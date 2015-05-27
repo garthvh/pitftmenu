@@ -64,7 +64,7 @@ And add the following line to the bottom of the file
 
 ## References
 
-The examples here are cobbled from other code below:
+The examples here are cobbled together from other code linked to below:
 
 - https://github.com/5Volt-Junkie/RPi-Tron-Radio/blob/master/tron-radio.py
 - http://richardhawthorn.com/?p=128

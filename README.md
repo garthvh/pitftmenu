@@ -4,6 +4,13 @@ Simple touch menu for Raspberry Pi projects using the [3.5" Adafruit PiTFT](http
 
 Runs as a python script in the framebuffer without needing a desktop environment.
 
+Featured on the adafruit blog for pi day:
+<div class="col-sm-8 col-sm-offset-2">
+	<blockquote class="twitter-tweet" lang="en">
+		<p lang="ht" dir="ltr">Simple PiTFT TouchPi Menu System <a href="https://twitter.com/hashtag/piday?src=hash">#piday</a> <a href="https://twitter.com/hashtag/raspberrypi?src=hash">#raspberrypi</a> <a href="https://twitter.com/Raspberry_Pi">@Raspberry_Pi</a> <a href="http://t.co/JT9CbFiwvz">http://t.co/JT9CbFiwvz</a></p>&mdash; adafruit industries (@adafruit) <a href="https://twitter.com/adafruit/status/596675973615071232">May 8, 2015</a></blockquote>
+	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
 I have made a model b+ [Touch Pi](https://learn.adafruit.com/touch-pi-portable-raspberry-pi) 3D printed case for my screen and raspberry pi, and with a battery and [PowerBoost 500c](https://www.adafruit.com/product/1944) charger it makes a great base for raspberry pi projects.
 
 I wanted a way to do common tasks like going to the desktop, rebooting and shutting down without needing to use a keyboard.  I also wanted the screen to display the current IP address to make it easier to ssh into the device.

@@ -188,10 +188,10 @@ make_button("    Desktop", 15, 65, 50, 145, blue)
 make_button("   Terminal", 170, 65, 50, 145, blue)
 # Third Row buttons 5 and 6
 make_button("      Games", 15, 125, 50, 140, blue)
-make_button("WiFi Settings", 170, 125, 50, 140, blue)
+make_button(" WiFi Settings", 175, 125, 50, 140, blue)
 # Fourth Row Buttons
 make_button("     Reboot", 15, 185, 50, 145, blue)
-make_button("   Shutdown", 170, 185, 50, 145, blue)
+make_button("   Shutdown", 175, 185, 50, 145, blue)
 
 # LBO Pin from Powerboost
 RPi.GPIO.setmode (RPi.GPIO.BCM)

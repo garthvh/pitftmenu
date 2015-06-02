@@ -184,10 +184,10 @@ pi_hostname = pi_hostname[:-1]
 # First Row Label
 make_label(pi_hostname + " - " +  get_ip(), 32, 30, 48, blue)
 # Second Row buttons 3 and 4
-make_button("     Desktop", 30, 105, 55, 210, blue)
+make_button("     Desktop", 10, 65, 40, 140, blue)
 make_button("    Terminal", 260, 105, 55, 210, blue)
 # Third Row buttons 5 and 6
-make_button(" Emulation Station", 30, 180, 55, 210, blue)
+make_button(" Emulation Station", 10, 180, 55, 210, blue)
 make_button(" WiFi Settings", 260, 180, 55, 210, blue)
 # Fourth Row Buttons
 make_button("      Reboot", 30, 255, 55, 210, blue)

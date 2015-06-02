@@ -90,9 +90,9 @@ def button(number):
     if number == 1:
         # desktop
         screen.fill(black)
-        font=pygame.font.Font(None,72)
+        font=pygame.font.Font(None,48)
         label=font.render("Launching Desktop", 1, (white))
-        screen.blit(label,(10,120))
+        screen.blit(label,(10,110))
         pygame.display.flip()
         pygame.quit()
         subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
@@ -102,9 +102,9 @@ def button(number):
     if number == 2:
         # exit
         screen.fill(black)
-        font=pygame.font.Font(None,72)
+        font=pygame.font.Font(None,48)
         label=font.render("Exiting to Terminal", 1, (white))
-        screen.blit(label,(10,120))
+        screen.blit(label,(10,110))
         pygame.display.flip()
         pygame.quit()
         sys.exit()
@@ -112,9 +112,9 @@ def button(number):
     if number == 3:
         # Emulation Station
         screen.fill(black)
-        font=pygame.font.Font(None,72)
+        font=pygame.font.Font(None,48)
         label=font.render("Emulation Station Loading. .", 1, (white))
-        screen.blit(label,(20,120))
+        screen.blit(label,(20,110))
         pygame.display.flip()
         pygame.quit()
         os.system("emulationstation")
@@ -123,7 +123,7 @@ def button(number):
     if number == 4:
         # Wifi Settings
         screen.fill(black)
-        font=pygame.font.Font(None,72)
+        font=pygame.font.Font(None,48)
         label=font.render("WiFi Settings. .", 1, (white))
         screen.blit(label,(20,120))
         pygame.display.flip()
@@ -134,9 +134,9 @@ def button(number):
     if number == 5:
         # reboot
         screen.fill(black)
-        font=pygame.font.Font(None,72)
+        font=pygame.font.Font(None,48)
         label=font.render("Rebooting. .", 1, (white))
-        screen.blit(label,(40,120))
+        screen.blit(label,(40,110))
         pygame.display.flip()
         pygame.quit()
         restart()
@@ -145,9 +145,9 @@ def button(number):
     if number == 6:
         # shutdown
         screen.fill(black)
-        font=pygame.font.Font(None,72)
+        font=pygame.font.Font(None,48)
         label=font.render("Shutting Down. .", 1, (white))
-        screen.blit(label,(20,120))
+        screen.blit(label,(20,110))
         pygame.display.flip()
         pygame.quit()
         shutdown()
@@ -188,7 +188,7 @@ make_button("     Desktop", 15, 65, 50, 145, blue)
 make_button("    Terminal", 170, 65, 50, 145, blue)
 # Third Row buttons 5 and 6
 make_button("      Games", 15, 125, 50, 145, blue)
-make_button("WiFi Settings", 170, 125, 50, 145, blue)
+make_button("  WiFi Setup", 170, 125, 50, 145, blue)
 # Fourth Row Buttons
 make_button("      Reboot", 15, 185, 50, 145, blue)
 make_button("   Shutdown", 170, 185, 50, 145, blue)

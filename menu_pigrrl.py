@@ -19,7 +19,7 @@ pygame.mouse.set_visible(0)
 def make_button(text, xpo, ypo, height, width, colour):
     font=pygame.font.Font(None,30)
     label=font.render(str(text), 1, (colour))
-    screen.blit(label,(xpo,ypo))
+    screen.blit(label,(xpo,ypo+10))
     pygame.draw.rect(screen, blue, (xpo-5,ypo-5,width,height),5)
 
 # define function for printing text in a specific place with a specific colour
@@ -184,14 +184,14 @@ pi_hostname = pi_hostname[:-1]
 # First Row Label
 make_label(pi_hostname + " - " +  get_ip(), 20, 20, 36, blue)
 # Second Row buttons 3 and 4
-make_button("    Desktop", 15, 65, 50, 140, blue)
-make_button("   Terminal", 175, 65, 50, 140, blue)
+make_button("      Desktop", 15, 65, 50, 145, blue)
+make_button("     Terminal", 170, 65, 50, 145, blue)
 # Third Row buttons 5 and 6
-make_button("Emulation Station", 15, 125, 50, 140, blue)
-make_button(" WiFi Settings", 175, 125, 40, 140, blue)
+make_button("Games", 15, 125, 50, 140, blue)
+make_button("WiFi Settings", 175, 125, 50, 140, blue)
 # Fourth Row Buttons
-make_button("      Reboot", 15, 185, 50, 140, blue)
-make_button("   Shutdown", 175, 185, 50, 140, blue)
+make_button("       Reboot", 15, 185, 50, 140, blue)
+make_button("     Shutdown", 175, 185, 50, 140, blue)
 
 # LBO Pin from Powerboost
 RPi.GPIO.setmode (RPi.GPIO.BCM)

@@ -17,10 +17,10 @@ pygame.mouse.set_visible(0)
 
 # define function for printing text in a specific place with a specific width and height with a specific colour and border
 def make_button(text, xpo, ypo, height, width, colour):
-    font=pygame.font.Font(None,22)
+    font=pygame.font.Font(None,30)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
-    pygame.draw.rect(screen, blue, (xpo-5,ypo-5,width,height),5)
+    pygame.draw.rect(screen, blue, (xpo,ypo,width,height),5)
 
 # define function for printing text in a specific place with a specific colour
 def make_label(text, xpo, ypo, fontsize, colour):
@@ -182,7 +182,7 @@ pi_hostname = run_cmd("hostname")
 pi_hostname = pi_hostname[:-1]
 # Buttons and labels
 # First Row Label
-make_label(pi_hostname + " - " +  get_ip(), 32, 30, 48, blue)
+make_label(pi_hostname + " - " +  get_ip(), 10, 10, 36, blue)
 # Second Row buttons 3 and 4
 make_button("     Desktop", 10, 65, 40, 140, blue)
 make_button("    Terminal", 260, 105, 55, 210, blue)

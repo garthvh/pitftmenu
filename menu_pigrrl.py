@@ -170,7 +170,8 @@ orange  = (255, 127,   0)
 
 #set size of the screen
 size = width, height = 320, 240
-options = border, padding = 10, 10
+
+options = border, padding = 5, 5
 
 screen = pygame.display.set_mode(size)
 
@@ -178,7 +179,7 @@ screen = pygame.display.set_mode(size)
 screen.fill(black)
 
 # Outer Border
-pygame.draw.rect(screen, blue, (0,0,size.width,size.height),options.border)
+pygame.draw.rect(screen, blue, (0,0,size.width,size.height),5)
 pi_hostname = run_cmd("hostname")
 pi_hostname = pi_hostname[:-1]
 # Buttons and labels

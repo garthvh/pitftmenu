@@ -182,9 +182,9 @@ pi_hostname = run_cmd("hostname")
 pi_hostname = pi_hostname[:-1]
 # Buttons and labels
 # First Row Label
-make_label(pi_hostname + " - " +  get_ip(), 10, 10, 36, blue)
+make_label(pi_hostname + " - " +  get_ip(), 20, 20, 36, blue)
 # Second Row buttons 3 and 4
-make_button("     Desktop", 10, 65, 40, 140, blue)
+make_button("     Desktop", 20, 65, 40, 140, blue)
 make_button("    Terminal", 260, 105, 55, 210, blue)
 # Third Row buttons 5 and 6
 make_button(" Emulation Station", 10, 180, 55, 210, blue)

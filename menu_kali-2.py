@@ -43,8 +43,8 @@ def on_touch():
 ##    if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
 ##            button(4)
     # button 5 event
-##    if 30 <= touch_pos[0] <= 240 and 255 <= touch_pos[1] <=310:
-##            button(5)
+    if 30 <= touch_pos[0] <= 240 and 255 <= touch_pos[1] <=310:
+            button(5)
     # button 6 event
 ##    if 260 <= touch_pos[0] <= 470 and 255 <= touch_pos[1] <=310:
 ##            button(6)
@@ -151,13 +151,13 @@ pygame.draw.rect(screen, green, (0,0,480,320),10)
 # First Row Label
 make_label(get_ip(), 32, 30, 48, green)
 # Second Row buttons 1 and 2
-make_button("    Shutdown", 30, 105, 55, 210, green)
+make_button("   Shutdown", 30, 105, 55, 210, green)
 make_button("      Reboot", 260, 105, 55, 210, green)
 # Third Row buttons 3 and 4
 ## make_button("  ", 30, 180, 55, 210, green)
 ## make_button("  ", 260, 180, 55, 210, green)
 # Fourth Row Buttons
-make_button("  <<<", 30, 255, 55, 210, green)
+make_button("       <<<", 30, 255, 55, 210, green)
 ## make_button("  ", 260, 255, 55, 210, green)
 
 

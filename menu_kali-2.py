@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys, pygame, socket
 from pygame.locals import *
 import time
@@ -37,11 +38,11 @@ def on_touch():
     if 260 <= touch_pos[0] <= 470 and 105 <= touch_pos[1] <=160:
             button(2)
     # button 3 event
-##    if 30 <= touch_pos[0] <= 240 and 180 <= touch_pos[1] <=235:
-##            button(3)
+    if 30 <= touch_pos[0] <= 240 and 180 <= touch_pos[1] <=235:
+            button(3)
     # button 4 event
-##    if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
-##            button(4)
+    if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
+            button(4)
     # button 5 event
     if 30 <= touch_pos[0] <= 240 and 255 <= touch_pos[1] <=310:
             button(5)
@@ -91,6 +92,28 @@ def button(number):
     print "You pressed button ",number
 
     if number == 1:
+        # Kismet
+         screen.fill(black)
+         font=pygame.font.Font(None,72)
+         label=font.render("Launching Kismet. .", 1, (white))
+         screen.blit(label,(40,120))
+         pygame.display.flip()
+         pygame.quit()
+         subprocess.call("/usr/bin/sudo -u pi /usr/bin/kismet", shell=True)
+         os.execv(__file__, sys.argv)
+
+    if number == 2:
+        # SDR-Scanner
+         screen.fill(black)
+         font=pygame.font.Font(None,72)
+         label=font.render("Launching SDR-Scanner. .", 1, (white))
+         screen.blit(label,(40,120))
+         pygame.display.flip()
+         pygame.quit()
+         run_cmd("python /home/pi/FreqShow/freqshow.py")
+         os.execv(__file__, sys.argv)
+
+    if number == 3:
         # shutdown
          screen.fill(black)
          font=pygame.font.Font(None,72)
@@ -101,7 +124,7 @@ def button(number):
          shutdown()
          sys.exit()
 
-    if number == 2:
+    if number == 4:
         # reboot
          screen.fill(black)
          font=pygame.font.Font(None,72)
@@ -120,7 +143,7 @@ def button(number):
         screen.blit(label,(20,120))
         pygame.display.flip()
         pygame.quit()
-        os.system("python /home/pi/pitftmenu/menu_kali-1.py")
+        os.execvp("python", ["python", "/home/pi/pitftmenu/menu_kali-1.py"])
         sys.exit()
 
 
@@ -151,11 +174,11 @@ pygame.draw.rect(screen, green, (0,0,480,320),10)
 # First Row Label
 make_label(get_ip(), 32, 30, 48, green)
 # Second Row buttons 1 and 2
-make_button("   Shutdown", 30, 105, 55, 210, green)
-make_button("      Reboot", 260, 105, 55, 210, green)
+make_button("     Kismet", 30, 105, 55, 210, green)
+make_button(" SDR-Scanner", 260, 105, 55, 210, green)
 # Third Row buttons 3 and 4
-## make_button("  ", 30, 180, 55, 210, green)
-## make_button("  ", 260, 180, 55, 210, green)
+make_button("   Shutdown", 30, 180, 55, 210, green)
+make_button("      Reboot", 260, 180, 55, 210, green)
 # Fourth Row Buttons
 make_button("       <<<", 30, 255, 55, 210, green)
 ## make_button("  ", 260, 255, 55, 210, green)

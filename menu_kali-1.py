@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys, pygame, socket
 from pygame.locals import *
 import time
@@ -49,12 +50,6 @@ def on_touch():
     if 260 <= touch_pos[0] <= 470 and 255 <= touch_pos[1] <=310:
             button(6)
 
-def get_temp():
-    command = "vcgencmd measure_temp"
-    process = Popen(command.split(), stdout=PIPE)
-    output = process.communicate()[0]
-    return output
-
 def run_cmd(cmd):
     process = Popen(cmd.split(), stdout=PIPE)
     output = process.communicate()[0]
@@ -68,25 +63,26 @@ def button(number):
         # X TFT
         screen.fill(black)
         font=pygame.font.Font(None,72)
-        label=font.render("Launching X on TFT Display", 1, (white))
+        label=font.render("X on TFT", 1, (white))
         screen.blit(label,(10,120))
         pygame.display.flip()
         pygame.quit()
-        subprocess.call("FRAMEBUFFER=/dev/fb1 startx", shell=True)
-        #run_cmd("FRAMEBUFFER=/dev/fb1 startx")
-        sys.exit()
+        ## Requires "Anybody" in dpkg-reconfigure x11-common if we have scrolled pages previously
+        run_cmd("/usr/bin/sudo -u pi FRAMEBUFFER=/dev/fb1 startx")
+        os.execv(__file__, sys.argv)        
 
     if number == 2:
         # X HDMI
         screen.fill(black)
         font=pygame.font.Font(None,72)
-        label=font.render("Launching X on HDMI Display", 1, (white))
+        label=font.render("X on HDMI", 1, (white))
         screen.blit(label,(10,120))
         pygame.display.flip()
         pygame.quit()
-        subprocess.call("FRAMEBUFFER=/dev/fb0 startx", shell=True)
-        #run_cmd("FRAMEBUFFER=/dev/fb0 startx")
-        sys.exit()
+        ## Requires "Anybody" in dpkg-reconfigure x11-common if we have scrolled pages previously
+        run_cmd("/usr/bin/sudo -u pi FRAMEBUFFER=/dev/fb0 startx")
+        os.execv(__file__, sys.argv)        
+
 
     if number == 3:
         # exit
@@ -99,26 +95,16 @@ def button(number):
         sys.exit()
 
     if number == 4:
-        # SDR-Scanner
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("SDR-Scanner. .", 1, (white))
-        screen.blit(label,(20,120))
-        pygame.display.flip()
-        pygame.quit()
-        os.system("python /home/pi/FreqShow/freqshow.py")
-        sys.exit()
-
+        # VNC Server
+        run_cmd("/usr/bin/sudo -u pi /usr/bin/vncserver :1")
+	return
 
     if number == 6:
         # next page
         screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("Next Page. .", 1, (white))
-        screen.blit(label,(20,120))
-        pygame.display.flip()
         pygame.quit()
-        os.system("python /home/pi/pitftmenu/menu_kali-2.py")
+        ##startx only works when we don't use subprocess here, don't know why
+	os.execvp("python", ["python", "/home/pi/pitftmenu/menu_kali-2.py"])
         sys.exit()
 
 
@@ -155,7 +141,7 @@ make_button("   X on TFT", 30, 105, 55, 210, green)
 make_button("   X on HDMI", 260, 105, 55, 210, green)
 # Third Row buttons 5 and 6
 make_button("   Terminal", 30, 180, 55, 210, green)
-make_button(" SDR-Scanner", 260, 180, 55, 210, green)
+make_button("  VNC-Server", 260, 180, 55, 210, green)
 # Fourth Row Buttons
 ## make_button(" ", 30, 255, 55, 210, green)
 make_button("         >>>", 260, 255, 55, 210, green)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import sys, os, subprocess, pygame
+import sys, os, subprocess, commands, pygame
 from pygame.locals import *
 from subprocess import *
 os.environ["SDL_FBDEV"] = "/dev/fb1"
@@ -55,6 +55,12 @@ def run_cmd(cmd):
     output = process.communicate()[0]
     return output
 
+def check_vnc():
+    if 'vnc :1' in commands.getoutput('ps -ef'):
+        return True
+    else:
+	return False
+
 # Define each button press action
 def button(number):
     print "You pressed button ",number
@@ -96,7 +102,12 @@ def button(number):
 
     if number == 4:
         # VNC Server
-        run_cmd("/usr/bin/sudo -u pi /usr/bin/vncserver :1")
+	if check_vnc():
+            run_cmd("/usr/bin/sudo -u pi /usr/bin/vncserver -kill :1")
+            make_button("  VNC-Server", 260, 180, 55, 210, tron_light)
+	else:
+            run_cmd("/usr/bin/sudo -u pi /usr/bin/vncserver :1")
+            make_button("  VNC-Server", 260, 180, 55, 210, green)
 	return
 
     if number == 5:
@@ -168,7 +179,10 @@ make_button("   X on TFT", 30, 105, 55, 210, tron_light)
 make_button("   X on HDMI", 260, 105, 55, 210, tron_light)
 # Third Row buttons 5 and 6
 make_button("   Terminal", 30, 180, 55, 210, tron_light)
-make_button("  VNC-Server", 260, 180, 55, 210, tron_light)
+if check_vnc():
+    make_button("  VNC-Server", 260, 180, 55, 210, green)
+else:
+    make_button("  VNC-Server", 260, 180, 55, 210, tron_light)
 # Fourth Row Buttons
 make_button("      hTop", 30, 255, 55, 210, tron_light)
 make_button("          >>>", 260, 255, 55, 210, tron_light)

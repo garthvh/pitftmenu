@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-import sys, os, subprocess, pygame
+import sys, os, subprocess, time, pygame
 from pygame.locals import *
+import os
 from subprocess import *
 os.environ["SDL_FBDEV"] = "/dev/fb1"
 os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
@@ -32,23 +33,39 @@ def on_touch():
     touch_pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
     #  x_min                 x_max   y_min                y_max
     # button 1 event
-    if 30 <= touch_pos[0] <= 240 and 105 <= touch_pos[1] <=160:
-            button(1)
+##    if 30 <= touch_pos[0] <= 240 and 105 <= touch_pos[1] <=160:
+##            button(1)
     # button 2 event
-    if 260 <= touch_pos[0] <= 470 and 105 <= touch_pos[1] <=160:
-            button(2)
+##    if 260 <= touch_pos[0] <= 470 and 105 <= touch_pos[1] <=160:
+##           button(2)
     # button 3 event
-    if 30 <= touch_pos[0] <= 240 and 180 <= touch_pos[1] <=235:
-            button(3)
+##    if 30 <= touch_pos[0] <= 240 and 180 <= touch_pos[1] <=235:
+##            button(3)
     # button 4 event
-    if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
-            button(4)
+##    if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
+##            button(4)
     # button 5 event
     if 30 <= touch_pos[0] <= 240 and 255 <= touch_pos[1] <=310:
             button(5)
     # button 6 event
     if 260 <= touch_pos[0] <= 470 and 255 <= touch_pos[1] <=310:
             button(6)
+
+# Get time and date
+def get_date():
+    d = "Date: " + time.strftime("%a, %d %b %Y", time.localtime())
+    return d
+
+def get_time():
+    t = "Time: " + time.strftime("%H:%M:%S", time.localtime())
+    return t
+
+def get_temp():
+    command = "vcgencmd measure_temp"
+    process = Popen(command.split(), stdout=PIPE)
+    output = process.communicate()[0]
+    temp = 'Temp: ' + output[5:-1]
+    return temp
 
 def run_cmd(cmd):
     process = Popen(cmd.split(), stdout=PIPE)
@@ -60,64 +77,70 @@ def button(number):
     print "You pressed button ",number
 
     if number == 1:
-        # X TFT
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("X on TFT", 1, (white))
-        screen.blit(label,(10,120))
-        pygame.display.flip()
-        pygame.quit()
-        ## Requires "Anybody" in dpkg-reconfigure x11-common if we have scrolled pages previously
-        run_cmd("/usr/bin/sudo -u pi FRAMEBUFFER=/dev/fb1 startx")
-        os.execv(__file__, sys.argv)        
-
-    if number == 2:
-        # X HDMI
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("X on HDMI", 1, (white))
-        screen.blit(label,(10,120))
-        pygame.display.flip()
-        pygame.quit()
-        ## Requires "Anybody" in dpkg-reconfigure x11-common if we have scrolled pages previously
-        run_cmd("/usr/bin/sudo -u pi FRAMEBUFFER=/dev/fb0 startx")
-        os.execv(__file__, sys.argv)        
-
-
-    if number == 3:
-        # exit
-        screen.fill(black)
-        font=pygame.font.Font(None,48)
-        label=font.render("Exiting to Terminal", 1, (white))
-        screen.blit(label,(20,120))
-        pygame.display.flip()
-        pygame.quit()
-        sys.exit()
-
-    if number == 4:
-        # VNC Server
-        run_cmd("/usr/bin/sudo -u pi /usr/bin/vncserver :1")
-	return
-
-    if number == 5:
-        # htop
+        # Kismet
          screen.fill(black)
          font=pygame.font.Font(None,72)
-         label=font.render("Launching htop. .", 1, (white))
+         label=font.render("Launching Kismet. .", 1, (white))
          screen.blit(label,(40,120))
          pygame.display.flip()
          pygame.quit()
-         subprocess.call("/usr/bin/htop", shell=True)
+         subprocess.call("/usr/bin/sudo -u pi /usr/bin/kismet", shell=True)
          os.execv(__file__, sys.argv)
 
-    if number == 6:
-        # next page
+    if number == 2:
+        # SDR-Scanner
+         screen.fill(black)
+         font=pygame.font.Font(None,72)
+         label=font.render("Launching SDR-Scanner. .", 1, (white))
+         screen.blit(label,(40,120))
+         pygame.display.flip()
+         pygame.quit()
+         run_cmd("python /home/pi/FreqShow/freqshow.py")
+         os.execv(__file__, sys.argv)
+
+    if number == 3:
+        # shutdown
+         screen.fill(black)
+         font=pygame.font.Font(None,72)
+         label=font.render("Shutting Down. .", 1, (white))
+         screen.blit(label,(40,120))
+         pygame.display.flip()
+         pygame.quit()
+         shutdown()
+         sys.exit()
+
+    if number == 4:
+        # reboot
+         screen.fill(black)
+         font=pygame.font.Font(None,72)
+         label=font.render("Rebooting. .", 1, (white))
+         screen.blit(label,(40,120))
+         pygame.display.flip()
+         pygame.quit()
+         restart()
+         sys.exit()
+
+    if number == 5:
+        # Previous page
         screen.fill(black)
+        font=pygame.font.Font(None,72)
+        label=font.render("Previous Page. .", 1, (white))
+        screen.blit(label,(20,120))
+        pygame.display.flip()
         pygame.quit()
-        ##startx only works when we don't use subprocess here, don't know why
-	os.execvp("python", ["python", "/home/pi/pitftmenu/menu_kali-2.py"])
+        os.execvp("python", ["python", "/home/pi/pitftmenu/menu_kali-2.py"])
         sys.exit()
 
+
+    if number == 6:
+        # Refresh
+        screen.fill(black)
+        font=pygame.font.Font(None,72)
+        label=font.render("Refreshing. .", 1, (white))
+        screen.blit(label,(20,120))
+        pygame.display.flip()
+        pygame.quit()
+	os.execv(__file__, sys.argv)
 
 
 # colors    R    G    B
@@ -137,14 +160,13 @@ tron_ora = (255, 202,   0)
 
 # Tron theme orange
 tron_regular = tron_ora
-tron_light   = tron_yel
+tron_light = tron_yel
 tron_inverse = tron_whi
 
 # Tron theme blue
 ##tron_regular = tron_blu
-##tron_light   = tron_whi
-##tron_inverse = tron_yel 
-
+##tron_light = tron_whi
+##tron_inverse = tron_yel
 # Set up the base menu you can customize your menu with the colors above
 
 #set size of the screen
@@ -158,20 +180,21 @@ screen.fill(black)
 pygame.draw.rect(screen, tron_regular, (0,0,479,319),8)
 pygame.draw.rect(screen, tron_light, (2,2,479-4,319-4),2)
 
-pi_hostname = run_cmd("hostname")
-pi_hostname = "  " + pi_hostname[:-1]
 # Buttons and labels
 # First Row Label
-make_label(pi_hostname, 32, 30, 48, tron_inverse)
-# Second Row buttons 3 and 4
-make_button("   X on TFT", 30, 105, 55, 210, tron_light)
-make_button("   X on HDMI", 260, 105, 55, 210, tron_light)
-# Third Row buttons 5 and 6
-make_button("   Terminal", 30, 180, 55, 210, tron_light)
-make_button("  VNC-Server", 260, 180, 55, 210, tron_light)
+make_label(get_temp(), 32, 30, 42, tron_inverse)
+
+# Second Row buttons 1 and 2
+make_label(get_date(), 32, 105, 42, tron_inverse)
+## make_button("     Kismet", 30, 105, 55, 210, tron_light)
+## make_button(" SDR-Scanner", 260, 105, 55, 210, tron_light)
+# Third Row buttons 3 and 4
+make_label(get_time(), 32, 180, 42, tron_inverse)
+## make_button("   Shutdown", 30, 180, 55, 210, tron_light)
+## make_button("      Reboot", 260, 180, 55, 210, tron_light)
 # Fourth Row Buttons
-make_button("      hTop", 30, 255, 55, 210, tron_light)
-make_button("          >>>", 260, 255, 55, 210, tron_light)
+make_button("         <<<", 30, 255, 55, 210, tron_light)
+make_button("     Refresh", 260, 255, 55, 210, tron_light)
 
 
 #While loop to manage touch screen inputs

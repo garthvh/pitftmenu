@@ -6,8 +6,9 @@ os.environ["SDL_FBDEV"] = "/dev/fb1"
 os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"
 
-# Initialize pygame and hide mouse
-pygame.init()
+# Initialize pygame modules individually (to avoid ALSA errors) and hide mouse
+pygame.font.init()
+pygame.display.init()
 pygame.mouse.set_visible(0)
 
 # define function for printing text in a specific place with a specific width and height with a specific colour and border
@@ -40,8 +41,8 @@ def on_touch():
     if 30 <= touch_pos[0] <= 240 and 180 <= touch_pos[1] <=235:
             button(3)
     # button 4 event
-##    if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
-##            button(4)
+    if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
+            button(4)
     # button 5 event
     if 30 <= touch_pos[0] <= 240 and 255 <= touch_pos[1] <=310:
             button(5)
@@ -85,16 +86,19 @@ def run_cmd(cmd):
     return output
 
 def check_service(srvc):
-    check = "service " + srvc + " status"
-    if "is running" in run_cmd(check):
-        return True
-    else:
+    try:
+        check = "/usr/sbin/service " + srvc + " status"
+        if "is running" in run_cmd(check):
+            return True
+        else:
+            return False
+    except:
         return False
 
 def toggle_service(srvc):
-    check = "service " + srvc + " status"
-    start = "service " + srvc + " start"
-    stop = "service " + srvc + " stop"
+    check = "/usr/sbin/service " + srvc + " status"
+    start = "/usr/sbin/service " + srvc + " start"
+    stop = "/usr/sbin/service " + srvc + " stop"
     if "is running" in run_cmd(check):
         run_cmd(stop)
         return False
@@ -103,15 +107,13 @@ def toggle_service(srvc):
         return True
 
 def check_vnc():
-    if 'vnc :1' in commands.getoutput('ps -ef'):
+    if 'vnc :1' in commands.getoutput('/bin/ps -ef'):
         return True
     else:
         return False
 
 # Define each button press action
 def button(number):
-    print "You pressed button ",number
-
     if number == 1:
         # Apache
 	if toggle_service("apache2"):
@@ -132,44 +134,31 @@ def button(number):
         # VNC Server
         if check_vnc():
             run_cmd("/usr/bin/sudo -u pi /usr/bin/vncserver -kill :1")
-            make_button("  VNC-Server", 260, 180, 55, 210, tron_light)
+            make_button("  VNC-Server",  30, 180, 55, 210, tron_light)
         else:
             run_cmd("/usr/bin/sudo -u pi /usr/bin/vncserver :1")
-            make_button("  VNC-Server", 260, 180, 55, 210, green)
+            make_button("  VNC-Server",  30, 180, 55, 210, green)
         return
 
     if number == 4:
-        # reboot
-         screen.fill(black)
-         font=pygame.font.Font(None,72)
-         label=font.render("Rebooting. .", 1, (white))
-         screen.blit(label,(40,120))
-         pygame.display.flip()
-         pygame.quit()
-         restart()
-         sys.exit()
+        # msfconsole
+        pygame.quit()
+        call("/usr/bin/msfconsole", shell=True)
+	os.execv(__file__, sys.argv)
 
     if number == 5:
         # Previous page
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("Previous Page. .", 1, (white))
-        screen.blit(label,(20,120))
-        pygame.display.flip()
         pygame.quit()
-        os.execvp("python", ["python", "/home/pi/pitftmenu/menu_kali-2.py"])
+        page=os.environ["MENUDIR"] + "menu_kali-2.py"
+        os.execvp("python", ["python", page])
         sys.exit()
 
 
     if number == 6:
         # Next page
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("Next Page. .", 1, (white))
-        screen.blit(label,(20,120))
-        pygame.display.flip()
         pygame.quit()
-        os.execvp("python", ["python", "/home/pi/pitftmenu/menu_kali-9.py"])
+        page=os.environ["MENUDIR"] + "menu_kali-9.py"
+        os.execvp("python", ["python", page])
         sys.exit()
 
 
@@ -226,11 +215,10 @@ else:
     make_button(" FTP Server", 260, 105, 55, 210, tron_light)
 # Third Row buttons 3 and 4
 if check_vnc():
-    make_button("  VNC-Server", 260, 180, 55, 210, green)
+    make_button("  VNC-Server",  30, 180, 55, 210, green)
 else:
     make_button("  VNC-Server", 30, 180, 55, 210, tron_light)
-## make_button("  ", 30, 180, 55, 210, tron_light)
-## make_button("  ", 260, 180, 55, 210, tron_light)
+make_button("  Metasploit ", 260, 180, 55, 210, tron_light)
 # Fourth Row Buttons
 make_button("         <<<", 30, 255, 55, 210, tron_light)
 make_button("         >>>", 260, 255, 55, 210, tron_light)

@@ -6,10 +6,10 @@ os.environ["SDL_FBDEV"] = "/dev/fb1"
 os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"
 
-# Initialize pygame and hide mouse
-pygame.init()
+# Initialize pygame modules individually (to avoid ALSA errors) and hide mouse
+pygame.font.init()
+pygame.display.init()
 pygame.mouse.set_visible(0)
-
 
 def run_cmd(cmd):
     process = Popen(cmd.split(), stdout=PIPE)
@@ -22,8 +22,9 @@ def screen_on():
 	run_cmd("/usr/bin/gpio -g mode 18 pwm")
 	run_cmd("/usr/bin/gpio pwmc 1000")
 	run_cmd("/usr/bin/gpio -g pwm 18 1023")
-        os.execvp("python", ["python", "/home/pi/pitftmenu/menu_kali-1.py"])
-        sys.exit()
+        page=os.environ["MENUDIR"] + "menu_kali-1.py"
+        os.execvp("python", ["python", page])
+        os.execvp("python", ["python", "menu_kali-1.py"])
 
 
 # Turn screen off

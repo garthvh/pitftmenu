@@ -6,8 +6,9 @@ os.environ["SDL_FBDEV"] = "/dev/fb1"
 os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"
 
-# Initialize pygame and hide mouse
-pygame.init()
+# Initialize pygame modules individually (to avoid ALSA errors) and hide mouse
+pygame.font.init()
+pygame.display.init()
 pygame.mouse.set_visible(0)
 
 # define function for printing text in a specific place with a specific width and height with a specific colour and border
@@ -88,37 +89,21 @@ def run_cmd(cmd):
 
 # Define each button press action
 def button(number):
-    print "You pressed button ",number
-
     if number == 1:
         # Kismet
-         screen.fill(black)
-         font=pygame.font.Font(None,72)
-         label=font.render("Launching Kismet. .", 1, (white))
-         screen.blit(label,(40,120))
-         pygame.display.flip()
          pygame.quit()
          subprocess.call("/usr/bin/sudo -u pi /usr/bin/kismet", shell=True)
          os.execv(__file__, sys.argv)
 
     if number == 2:
         # SDR-Scanner
-         screen.fill(black)
-         font=pygame.font.Font(None,72)
-         label=font.render("Launching SDR-Scanner. .", 1, (white))
-         screen.blit(label,(40,120))
-         pygame.display.flip()
-         pygame.quit()
-         run_cmd("/bin/bash /home/pi/pitftmenu/sdr-scanner.sh")
-         os.execv(__file__, sys.argv)
+        pygame.quit()
+        prog="/bin/bash " + os.environ["MENUDIR"] + "sdr-scanner.sh"
+        run_cmd(prog)
+        os.execv(__file__, sys.argv)
 
     if number == 3:
         # shutdown
-         screen.fill(black)
-         font=pygame.font.Font(None,72)
-         label=font.render("Shutting Down. .", 1, (white))
-         screen.blit(label,(40,120))
-         pygame.display.flip()
          pygame.quit()
          shutdown()
          sys.exit()
@@ -136,25 +121,17 @@ def button(number):
 
     if number == 5:
         # Previous page
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("Previous Page. .", 1, (white))
-        screen.blit(label,(20,120))
-        pygame.display.flip()
         pygame.quit()
-        os.execvp("python", ["python", "/home/pi/pitftmenu/menu_kali-1.py"])
+        page=os.environ["MENUDIR"] + "menu_kali-1.py"
+        os.execvp("python", ["python", page])
         sys.exit()
 
 
     if number == 6:
         # Next page
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("Next Page. .", 1, (white))
-        screen.blit(label,(20,120))
-        pygame.display.flip()
         pygame.quit()
-        os.execvp("python", ["python", "/home/pi/pitftmenu/menu_kali-3.py"])
+        page=os.environ["MENUDIR"] + "menu_kali-3.py"
+        os.execvp("python", ["python", page])
         sys.exit()
 
 

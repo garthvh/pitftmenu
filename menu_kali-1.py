@@ -6,8 +6,9 @@ os.environ["SDL_FBDEV"] = "/dev/fb1"
 os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"
 
-# Initialize pygame and hide mouse
-pygame.init()
+# Initialize pygame modules individually (to avoid ALSA errors) and hide mouse
+pygame.font.init()
+pygame.display.init()
 pygame.mouse.set_visible(0)
 
 # define function for printing text in a specific place with a specific width and height with a specific colour and border
@@ -58,15 +59,8 @@ def run_cmd(cmd):
 
 # Define each button press action
 def button(number):
-    print "You pressed button ",number
-
     if number == 1:
         # X TFT
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("X on TFT", 1, (white))
-        screen.blit(label,(10,120))
-        pygame.display.flip()
         pygame.quit()
         ## Requires "Anybody" in dpkg-reconfigure x11-common if we have scrolled pages previously
         run_cmd("/usr/bin/sudo -u pi FRAMEBUFFER=/dev/fb1 startx")
@@ -74,11 +68,6 @@ def button(number):
 
     if number == 2:
         # X HDMI
-        screen.fill(black)
-        font=pygame.font.Font(None,72)
-        label=font.render("X on HDMI", 1, (white))
-        screen.blit(label,(10,120))
-        pygame.display.flip()
         pygame.quit()
         ## Requires "Anybody" in dpkg-reconfigure x11-common if we have scrolled pages previously
         run_cmd("/usr/bin/sudo -u pi FRAMEBUFFER=/dev/fb0 startx")
@@ -87,39 +76,29 @@ def button(number):
 
     if number == 3:
         # exit
-        screen.fill(black)
-        font=pygame.font.Font(None,48)
-        label=font.render("Exiting to Terminal", 1, (white))
-        screen.blit(label,(20,120))
-        pygame.display.flip()
         pygame.quit()
         sys.exit()
 
     if number == 4:
         # htop
-         screen.fill(black)
-         font=pygame.font.Font(None,72)
-         label=font.render("Launching htop. .", 1, (white))
-         screen.blit(label,(40,120))
-         pygame.display.flip()
-         pygame.quit()
-         subprocess.call("/usr/bin/htop", shell=True)
-         os.execv(__file__, sys.argv)
+        pygame.quit()
+	process = subprocess.call("/usr/bin/htop", shell=True)
+        os.execv(__file__, sys.argv)        
 
     if number == 5:
         # next page
-        screen.fill(black)
         pygame.quit()
         ##startx only works when we don't use subprocess here, don't know why
-	os.execvp("python", ["python", "/home/pi/pitftmenu/menu_screenoff.py"])
+        page=os.environ["MENUDIR"] + "menu_screenoff.py"
+        os.execvp("python", ["python", page])
         sys.exit()
 
     if number == 6:
         # next page
-        screen.fill(black)
         pygame.quit()
         ##startx only works when we don't use subprocess here, don't know why
-	os.execvp("python", ["python", "/home/pi/pitftmenu/menu_kali-2.py"])
+	page=os.environ["MENUDIR"] + "menu_kali-2.py"
+	os.execvp("python", ["python", page])
         sys.exit()
 
 

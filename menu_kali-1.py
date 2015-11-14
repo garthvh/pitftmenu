@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import sys, os, subprocess, commands, pygame
+import sys, os, time, subprocess, commands, pygame
 from pygame.locals import *
 from subprocess import *
 os.environ["SDL_FBDEV"] = "/dev/fb1"
@@ -55,11 +55,6 @@ def run_cmd(cmd):
     output = process.communicate()[0]
     return output
 
-def check_vnc():
-    if 'vnc :1' in commands.getoutput('ps -ef'):
-        return True
-    else:
-	return False
 
 # Define each button press action
 def button(number):
@@ -101,16 +96,6 @@ def button(number):
         sys.exit()
 
     if number == 4:
-        # VNC Server
-	if check_vnc():
-            run_cmd("/usr/bin/sudo -u pi /usr/bin/vncserver -kill :1")
-            make_button("  VNC-Server", 260, 180, 55, 210, tron_light)
-	else:
-            run_cmd("/usr/bin/sudo -u pi /usr/bin/vncserver :1")
-            make_button("  VNC-Server", 260, 180, 55, 210, green)
-	return
-
-    if number == 5:
         # htop
          screen.fill(black)
          font=pygame.font.Font(None,72)
@@ -120,6 +105,14 @@ def button(number):
          pygame.quit()
          subprocess.call("/usr/bin/htop", shell=True)
          os.execv(__file__, sys.argv)
+
+    if number == 5:
+        # next page
+        screen.fill(black)
+        pygame.quit()
+        ##startx only works when we don't use subprocess here, don't know why
+	os.execvp("python", ["python", "/home/pi/pitftmenu/menu_screenoff.py"])
+        sys.exit()
 
     if number == 6:
         # next page
@@ -179,12 +172,9 @@ make_button("   X on TFT", 30, 105, 55, 210, tron_light)
 make_button("   X on HDMI", 260, 105, 55, 210, tron_light)
 # Third Row buttons 5 and 6
 make_button("   Terminal", 30, 180, 55, 210, tron_light)
-if check_vnc():
-    make_button("  VNC-Server", 260, 180, 55, 210, green)
-else:
-    make_button("  VNC-Server", 260, 180, 55, 210, tron_light)
+make_button("    hTop", 260, 180, 55, 210, tron_light)
 # Fourth Row Buttons
-make_button("      hTop", 30, 255, 55, 210, tron_light)
+make_button(" Screen Off", 30, 255, 55, 210, tron_light)
 make_button("          >>>", 260, 255, 55, 210, tron_light)
 
 
@@ -200,3 +190,5 @@ while 1:
             if event.key == K_ESCAPE:
                 sys.exit()
     pygame.display.update()
+    ## Reduce CPU utilisation
+    time.sleep(0.1)

@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import sys, os, subprocess, time, pygame
 from pygame.locals import *
-import os
 from subprocess import *
 os.environ["SDL_FBDEV"] = "/dev/fb1"
 os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
@@ -218,3 +217,5 @@ while 1:
             if event.key == K_ESCAPE:
                 sys.exit()
     pygame.display.update()
+    ## Reduce CPU utilisation
+    time.sleep(0.1)

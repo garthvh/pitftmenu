@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import sys, os, pygame, subprocess, os, time, socket
+import sys, os, pygame, subprocess, commands, time, socket
 from pygame.locals import *
 from subprocess import *
 os.environ["SDL_FBDEV"] = "/dev/fb1"
@@ -37,8 +37,8 @@ def on_touch():
     if 260 <= touch_pos[0] <= 470 and 105 <= touch_pos[1] <=160:
             button(2)
     # button 3 event
-##    if 30 <= touch_pos[0] <= 240 and 180 <= touch_pos[1] <=235:
-##            button(3)
+    if 30 <= touch_pos[0] <= 240 and 180 <= touch_pos[1] <=235:
+            button(3)
     # button 4 event
 ##    if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
 ##            button(4)
@@ -102,6 +102,12 @@ def toggle_service(srvc):
 	run_cmd(start)
         return True
 
+def check_vnc():
+    if 'vnc :1' in commands.getoutput('ps -ef'):
+        return True
+    else:
+        return False
+
 # Define each button press action
 def button(number):
     print "You pressed button ",number
@@ -123,15 +129,14 @@ def button(number):
 	return
 
     if number == 3:
-        # shutdown
-         screen.fill(black)
-         font=pygame.font.Font(None,72)
-         label=font.render("Shutting Down. .", 1, (white))
-         screen.blit(label,(40,120))
-         pygame.display.flip()
-         pygame.quit()
-         shutdown()
-         sys.exit()
+        # VNC Server
+        if check_vnc():
+            run_cmd("/usr/bin/sudo -u pi /usr/bin/vncserver -kill :1")
+            make_button("  VNC-Server", 260, 180, 55, 210, tron_light)
+        else:
+            run_cmd("/usr/bin/sudo -u pi /usr/bin/vncserver :1")
+            make_button("  VNC-Server", 260, 180, 55, 210, green)
+        return
 
     if number == 4:
         # reboot
@@ -220,6 +225,10 @@ if check_service("pure-ftpd"):
 else:
     make_button(" FTP Server", 260, 105, 55, 210, tron_light)
 # Third Row buttons 3 and 4
+if check_vnc():
+    make_button("  VNC-Server", 260, 180, 55, 210, green)
+else:
+    make_button("  VNC-Server", 30, 180, 55, 210, tron_light)
 ## make_button("  ", 30, 180, 55, 210, tron_light)
 ## make_button("  ", 260, 180, 55, 210, tron_light)
 # Fourth Row Buttons
@@ -239,3 +248,5 @@ while 1:
             if event.key == K_ESCAPE:
                 sys.exit()
     pygame.display.update()
+    ## Reduce CPU utilisation
+    time.sleep(0.1)

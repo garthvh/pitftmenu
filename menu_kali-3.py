@@ -125,9 +125,9 @@ def button(number):
     if number == 2:
         # Pure-ftpd
 	if toggle_service("pure-ftpd"):
-	    make_button(" FTP Server", 260, 105, 55, 210, green)
+	    make_button("   FTP Server", 260, 105, 55, 210, green)
 	else:
-	    make_button(" FTP Server", 260, 105, 55, 210, tron_light)
+	    make_button("   FTP Server", 260, 105, 55, 210, tron_light)
 	return
 
     if number == 3:
@@ -210,15 +210,15 @@ if check_service("apache2"):
 else:
      make_button(" WWW Server", 30, 105, 55, 210, tron_light)
 if check_service("pure-ftpd"):
-    make_button(" FTP Server", 260, 105, 55, 210, green)
+    make_button("   FTP Server", 260, 105, 55, 210, green)
 else:
-    make_button(" FTP Server", 260, 105, 55, 210, tron_light)
+    make_button("   FTP Server", 260, 105, 55, 210, tron_light)
 # Third Row buttons 3 and 4
 if check_vnc():
     make_button("  VNC-Server",  30, 180, 55, 210, green)
 else:
     make_button("  VNC-Server", 30, 180, 55, 210, tron_light)
-make_button("  Metasploit ", 260, 180, 55, 210, tron_light)
+make_button("    Metasploit ", 260, 180, 55, 210, tron_light)
 # Fourth Row Buttons
 make_button("         <<<", 30, 255, 55, 210, tron_light)
 make_button("         >>>", 260, 255, 55, 210, tron_light)

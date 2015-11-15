@@ -147,13 +147,13 @@ pi_hostname = "  " + pi_hostname[:-1]
 # First Row Label
 make_label(pi_hostname, 32, 30, 48, tron_inverse)
 # Second Row buttons 3 and 4
-make_button("   X on TFT", 30, 105, 55, 210, tron_light)
+make_button("    X on TFT", 30, 105, 55, 210, tron_light)
 make_button("   X on HDMI", 260, 105, 55, 210, tron_light)
 # Third Row buttons 5 and 6
-make_button("   Terminal", 30, 180, 55, 210, tron_light)
-make_button("    hTop", 260, 180, 55, 210, tron_light)
+make_button("    Terminal", 30, 180, 55, 210, tron_light)
+make_button("        hTop", 260, 180, 55, 210, tron_light)
 # Fourth Row Buttons
-make_button(" Screen Off", 30, 255, 55, 210, tron_light)
+make_button("   Screen Off", 30, 255, 55, 210, tron_light)
 make_button("          >>>", 260, 255, 55, 210, tron_light)
 
 

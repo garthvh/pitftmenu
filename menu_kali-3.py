@@ -88,7 +88,8 @@ def run_cmd(cmd):
 def check_service(srvc):
     try:
         check = "/usr/sbin/service " + srvc + " status"
-        if "is running" in run_cmd(check):
+	status = run_cmd(check)
+        if ("is running" in status) or ("active (running)") in status:
             return True
         else:
             return False
@@ -99,7 +100,8 @@ def toggle_service(srvc):
     check = "/usr/sbin/service " + srvc + " status"
     start = "/usr/sbin/service " + srvc + " start"
     stop = "/usr/sbin/service " + srvc + " stop"
-    if "is running" in run_cmd(check):
+    status = run_cmd(check)
+    if ("is running" in status) or ("active (running)") in status:
         run_cmd(stop)
         return False
     else:

@@ -9,6 +9,7 @@ os.environ["SDL_MOUSEDRV"] = "TSLIB"
 # Initialize pygame modules individually (to avoid ALSA errors) and hide mouse
 pygame.font.init()
 pygame.display.init()
+
 pygame.mouse.set_visible(0)
 
 # define function for printing text in a specific place with a specific width and height with a specific colour and border

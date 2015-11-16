@@ -19,18 +19,18 @@ def run_cmd(cmd):
 # Turn screen on
 def screen_on():
         pygame.quit()
-	run_cmd("/usr/bin/gpio -g mode 18 pwm")
-	run_cmd("/usr/bin/gpio pwmc 1000")
-	run_cmd("/usr/bin/gpio -g pwm 18 1023")
+	run_cmd("/usr/bin/env gpio -g mode 18 pwm")
+	run_cmd("/usr/bin/env gpio pwmc 1000")
+	run_cmd("/usr/bin/env gpio -g pwm 18 1023")
         page=os.environ["MENUDIR"] + "menu_kali-1.py"
         os.execvp("python", ["python", page])
         os.execvp("python", ["python", "menu_kali-1.py"])
 
 
 # Turn screen off
-run_cmd("/usr/bin/gpio -g mode 18 pwm")
-run_cmd("/usr/bin/gpio pwmc 1000")
-run_cmd("/usr/bin/gpio -g pwm 18 0")
+run_cmd("/usr/bin/env gpio -g mode 18 pwm")
+run_cmd("/usr/bin/env gpio pwmc 1000")
+run_cmd("/usr/bin/env gpio -g pwm 18 0")
 
 
 #While loop to manage touch screen inputs

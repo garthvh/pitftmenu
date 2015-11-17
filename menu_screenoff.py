@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import pygame, os, subprocess, time
+import RPi.GPIO as GPIO
 from pygame.locals import *
 from subprocess import *
 os.environ["SDL_FBDEV"] = "/dev/fb1"
@@ -11,6 +12,11 @@ pygame.font.init()
 pygame.display.init()
 pygame.mouse.set_visible(0)
 
+# Initialise GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(18, GPIO.OUT)
+
+
 def run_cmd(cmd):
     process = Popen(cmd.split(), stdout=PIPE)
     output = process.communicate()[0]
@@ -19,21 +25,21 @@ def run_cmd(cmd):
 # Turn screen on
 def screen_on():
         pygame.quit()
-	run_cmd("/usr/bin/env gpio -g mode 18 pwm")
-	run_cmd("/usr/bin/env gpio pwmc 1000")
-	run_cmd("/usr/bin/env gpio -g pwm 18 1023")
+	backlight = GPIO.PWM(18, 1023)
+	backlight.start(100)
+	GPIO.cleanup()
         page=os.environ["MENUDIR"] + "menu_kali-1.py"
         os.execvp("python", ["python", page])
-        os.execvp("python", ["python", "menu_kali-1.py"])
 
 
 # Turn screen off
-run_cmd("/usr/bin/env gpio -g mode 18 pwm")
-run_cmd("/usr/bin/env gpio pwmc 1000")
-run_cmd("/usr/bin/env gpio -g pwm 18 0")
+def screen_off():
+	backlight = GPIO.PWM(18, 0.1)
+	backlight.start(0)
 
 
 #While loop to manage touch screen inputs
+screen_off()
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:

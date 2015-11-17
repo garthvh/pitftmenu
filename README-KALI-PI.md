@@ -29,6 +29,7 @@ I came accross [garthvh's project featured on Adafruit](https://blog.adafruit.co
 ### Start Screen
 
 The first menu is menu_kali-1.py, which provides the following options:
+
 ![menu_kali-1](http://whitedome.com.au/re4son/wp-content/uploads/2015/11/kali-pi_01-menu_kali-1.png)
 
 All functions are self explainatory.
@@ -42,6 +43,7 @@ Using the ">>>" button, we can scroll to the next screen, namely "menu_kali-2.py
 ### menu_kali-2.py
 
 Some more applications to launch:
+
 ![menu_kali-2.py](http://whitedome.com.au/re4son/wp-content/uploads/2015/11/kali-pi_03-menu_kali-2.png)
 
 Kismet and SDR-Scanner have to be installed for this to work.
@@ -55,14 +57,18 @@ Add the following line:
 ### menu_kali-3.py
 
 This script allows us to stop and start services:
+
 ![menu_kali-3.py](http://whitedome.com.au/re4son/wp-content/uploads/2015/11/kali-pi_06-menu_kali-3.png)
 Press a button to start a service.
-The button changes to green when the service is running.
+
+The button changes to green when the service is running:
+
 ![running service](http://whitedome.com.au/re4son/wp-content/uploads/2015/11/kali-pi_09-services-on.png)
 Press the button again to stop the service.
 
 ### menu_kali-3.py
 The last script displays some health information:
+
 ![menu_kali-9](http://whitedome.com.au/re4son/wp-content/uploads/2015/11/kali-pi_10-menu_kali-9.png)
 
 ### Run menu at startup

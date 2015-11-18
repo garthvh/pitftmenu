@@ -13,7 +13,11 @@ I have made a model b+ [Touch Pi](https://learn.adafruit.com/touch-pi-portable-r
 
 I wanted a way to do common tasks like going to the desktop, rebooting and shutting down without needing to use a keyboard.  I also wanted the screen to display the current IP address to make it easier to ssh into the device.
 
-Written using python and pygame the 3.5" screen is broken out into 8 large touchable menu areas.
+Written using python and pygame the 3.5" screen is broken out into 8 large touchable menu areas but can be endlessly customized.
+
+@Re4son customized the script to run the menu's on his Kali Linux penetration testing drone [Sticky Finger's Kali Pi](http://www.whitedome.com.au/kali-pi)
+![Kali-Pi in action](http://whitedome.com.au/re4son/wp-content/uploads/2015/11/2015.11-Kali-Pi-Drone_small2.jpg)
+
 
 ## Installation
 
@@ -69,18 +73,13 @@ And add the following line to the bottom of the file
 
 # [KALI-PI Launcher](http://whitedome.com.au/re4son/index.php/2015/11/16/sticky-fingers-kali-pi/) by @Re4son 
 
-## Pen Testing Drone Menus
-
-Simple touch menu for Raspberry Pi projects using the [3.5" Adafruit PiTFT](http://www.adafruit.com/products/2097) 480x320 touch screen based on garthvh's original project.
-It's been slightly improved to be more resource friendly, allow to scroll through multiple themes and return after closing an application.
-
-It runs as a python script in the framebuffer without needing a desktop environment.
+## Penetration Testing Drone Menus
 
 This menu is the default launcher in [Sticky Finger's Kali Pi](http://www.whitedome.com.au/kali-pi)
 ![Kali-Pi in action](http://whitedome.com.au/re4son/wp-content/uploads/2015/11/2015.11-Kali-Pi-Drone_small2.jpg)
 
 I was after an easy way to launch X Window on either the TFT screen or through HDMI without the need for massive reconfigurations.
-I came accross [garthvh's project featured on Adafruit](https://blog.adafruit.com/2015/05/08/simple-pitft-touchpi-menu-system-piday-raspberrypi-raspberry_pi/) and used it as basis for this project
+I came accross this repository and used it as basis for this project
 
 
 ## Installation

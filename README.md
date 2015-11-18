@@ -84,10 +84,10 @@ I came accross this repository and used it as basis for this project
 
 ## Installation
 
-    git clone https://github.com/re4son/pitftmenu
+    git clone https://github.com/garthvh/pitftmenu
     cd pitftmenu
     customise the file "menu" to match the path
-    cusomise the scripts to suit your needs
+    customise the scripts to suit your needs
     
 **Important: Pygame is broken on on Debian Jessie. I'll explain below how to fix it.**
 

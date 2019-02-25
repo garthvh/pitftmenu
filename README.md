@@ -190,5 +190,4 @@ The examples here are cobbled together from other code linked to below:
 - https://github.com/DoctorBud/raspberrypi-node/tree/176f7536d505de17b0d790855a836e0d2cb7d059/pitft-pygame
 - https://learn.adafruit.com/pi-video-output-using-pygame/pygame-drawing-functions
 - https://learn.adafruit.com/pi-video-output-using-pygame/pointing-pygame-to-the-framebuffer
-- http://home.uktechreviews.com/Raspberry/Pi%20blog/files/pygame-menu.html
 - http://whitedome.com.au/re4son/index.php/2015/11/16/sticky-fingers-kali-pi/

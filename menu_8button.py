@@ -1,15 +1,13 @@
-import sys, pygame
+import sys, pygame, time, subprocess, os
 from pygame.locals import *
-import time
-import subprocess
-import os
 from subprocess import *
 os.environ["SDL_FBDEV"] = "/dev/fb1"
 os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"
 
-# Initialize pygame and hide mouse
-pygame.init()
+# Initialize pygame modules individually (to avoid ALSA errors) and hide mouse
+pygame.font.init()
+pygame.display.init()
 pygame.mouse.set_visible(0)
 
 # define function for printing text in a specific place with a specific width and height with a specific colour and border
@@ -57,7 +55,7 @@ def on_touch():
 
 # Define each button press action
 def button(number):
-    print("You pressed button ",number)
+    print("You pressed button", number)
 
     if number == 1:
         time.sleep(5) #do something interesting here
@@ -128,19 +126,17 @@ make_button("Menu item 6", 260, 180, 55, 210, blue)
 make_button("Menu item 7", 30, 255, 55, 210, blue)
 make_button("Menu item 8", 260, 255, 55, 210, blue)
 
-# While loop to manage touch screen inputs
+#While loop to manage touch screen inputs
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
-            print("screen pressed") #for debugging purposes
             pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
-            print(pos) #for checking
-            pygame.draw.circle(screen, white, pos, 2, 0) #for debugging purposes - adds a small dot where the screen is pressed
-            on_click()
+            on_touch()
 
-#ensure there is always a safe way to end the program if the touch screen fails
-
+        #ensure there is always a safe way to end the program if the touch screen fails
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 sys.exit()
     pygame.display.update()
+    ## Reduce CPU utilisation
+    time.sleep(0.1)

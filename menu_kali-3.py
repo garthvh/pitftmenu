@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import sys, os, pygame, subprocess, commands, time, socket
+import sys, os, pygame, subprocess, subprocess, time, socket
 from pygame.locals import *
 from subprocess import *
 os.environ["SDL_FBDEV"] = "/dev/fb1"
@@ -109,7 +109,7 @@ def toggle_service(srvc):
         return True
 
 def check_vnc():
-    if 'vnc :1' in commands.getoutput('/bin/ps -ef'):
+    if 'vnc :1' in subprocess.getoutput('/bin/ps -ef'):
         return True
     else:
         return False

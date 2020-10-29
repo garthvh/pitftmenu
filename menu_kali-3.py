@@ -181,14 +181,14 @@ orange   = (255, 127,   0)
 tron_ora = (255, 202,   0)
 
 # Tron theme orange
-tron_regular = tron_ora
-tron_light = tron_yel
-tron_inverse = tron_whi
+#tron_regular = tron_ora
+#tron_light = tron_yel
+#tron_inverse = tron_whi
 
 # Tron theme blue
-##tron_regular = tron_blu
-##tron_light = tron_whi
-##tron_inverse = tron_yel
+tron_regular = tron_blu
+tron_light = tron_whi
+tron_inverse = tron_yel
 
 # Set up the base menu you can customize your menu with the colors above
 

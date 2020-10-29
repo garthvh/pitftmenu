@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import sys, os, pygame, subprocess, subprocess, time, socket
+import sys, os, pygame, subprocess, time, socket
 from pygame.locals import *
 from subprocess import *
 os.environ["SDL_FBDEV"] = "/dev/fb1"

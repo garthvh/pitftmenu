@@ -89,7 +89,7 @@ def run_cmd(cmd):
 
 # Define each button press action
 def button(number):
-    print "You pressed button ",number
+    print("You pressed button ",number)
 
     if number == 1:
         # desktop
